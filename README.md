@@ -10,3 +10,7 @@
 * Just use the command `pip3 install -r requirements.txt ` to install the dependecies
 
 * And use ` python3 server.py ` to start the server.
+
+## Tech Stack (Expected)
+* Currently this is a Flask Backend
+* React Frontend (expected) repo.
