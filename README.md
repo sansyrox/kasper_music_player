@@ -7,6 +7,6 @@
 <p>Currently as for Stage I expect to make a "music.youtube.com" like app that works in India too and plays only mp3 music incorporating Youtube Suggestion too using Youtube API's or scrapping if required. </p>
 
 ## Installation
-* Just use the command `pip3 install requirements.txt ` to install the dependecies
+* Just use the command `pip3 install -r requirements.txt ` to install the dependecies
 
 * And use ` python3 server.py ` to start the server.
