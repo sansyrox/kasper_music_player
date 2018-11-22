@@ -15,3 +15,4 @@
 ## Tech Stack (Expected)
 * Currently this is a Flask Backend
 * React Frontend (expected) repo.
+* For Storing Data , a JSON file be used as of now.
