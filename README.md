@@ -22,7 +22,7 @@
 ## Installation
 [(Back to top)](#list-of-contents)
 
-* Just use the command `pip3 install -r requirements.txt ` to install the dependecies
+* Just use the command `pip3 install -r requirements.txt --user ` to install the dependecies
 
 * And use ` python3 server.py ` to start the server.
 

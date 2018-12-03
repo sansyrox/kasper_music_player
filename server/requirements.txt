@@ -1,4 +1,5 @@
-vlc
+python-vlc
 flask
-jsonify
-
+json_config
+pafy
+youtube-dl
