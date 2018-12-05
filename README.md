@@ -22,6 +22,7 @@ NOTE: For the NWoC participants. If you guys find any issue that is not already 
 ## Installation
 [(Back to top)](#list-of-contents)
 
+### To start the Flask Server
 * It is advised to use a `pipenv` as the already installed versions of vlc might interfere with the ones in the dependencies
 
 * Use the command `pip3 install pipenv`
@@ -31,6 +32,13 @@ NOTE: For the NWoC participants. If you guys find any issue that is not already 
 * Now install the dependenices by using the command `pipenv install`
 
 * To run the server , use the command `pipenv run python3 server.py`
+
+### To start the React Frontent
+* Go to the frontend directory.
+
+* Install the dependencies using `npm install --save`
+
+* To start the react app, Use `npm start`.
 
 ## Tech Stack (Expected)
 [(Back to top)](#list-of-contents)
