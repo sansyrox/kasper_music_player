@@ -51,7 +51,7 @@ def stop():
 @app.route('/restart')
 def restart():
     player.stop()
-    player.player()
+    player.play()
     display_message = {"song":"restarted"}
     resp = jsonify(display_message)
     resp.status_code = 200
