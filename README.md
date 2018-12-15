@@ -23,6 +23,8 @@ NOTE: For the NWoC participants. If you guys find any issue that is not already 
 [(Back to top)](#list-of-contents)
 
 ### To start the Flask Server
+* Install vlc if not done already (`sudo apt-get install vlc` for Debian)
+
 * It is advised to use a `pipenv` as the already installed versions of vlc might interfere with the ones in the dependencies
 
 * Use the command `pip3 install pipenv`
