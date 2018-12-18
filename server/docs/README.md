@@ -5,6 +5,7 @@
 ## List of APIs/libraries used
 - [Pafy](#Pafy)
 - [VLC](#VLC)
+- [YouTubeData](#YouTubeData)
 - [youtube-dl](#youtube-dl)
 
 ### Pafy
@@ -38,7 +39,16 @@ This is the libvlc which is behind VLC, we can use this to play, control our mus
 
 - `Instance.media_player.stop()` - stop the media from playing
 
+
+### YouTubeData
+
+This is YouTube's Data API to enable searching for videos in youtube.
+
+- `youtube_search('searchquery')` - returns a tuple of length 2, the first item is some 6            character string, and the second contains 50 videos with detailed info about each, each item      is a nested dict with - 'etag', 'id', 'kind', and 'snippet' where 'id' and 'snippet' are          nested further.
+
+
 ### youtube-dl
+
 This is needed by Pafy.
 
 
@@ -48,7 +58,7 @@ This is needed by Pafy.
 The route() decorator tells Flask what URL should trigger which function, currently the URLs are -
 
 1. `/` - this just renders the index.html
-2. `/song` - here we get the 11 character video_id and append it to the url, to retrieve the YouTube video, select the highest bitrate audio stream, and play it in VLC in audio only mode. Finally we send response 'song started' (in JSON format) with 'OK' status code(200) to the front end.
+2. `/song` - here we get the search query from the front end and feed it to the YouTube Data API      to get the first video matching the query, and thus obtain the 11 character video_id and          append it to the url, to retrieve the YouTube video, select the highest bitrate audio stream,     and play it in VLC in audio only mode. Finally we send response 'song started' (in JSON           format) with 'OK' status code(200) to the front end.
 3. `/pause` - pause the song
 4. `/stop` - stop the song
 5. `/restart` - restart the song using stop and play

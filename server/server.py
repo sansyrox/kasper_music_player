@@ -6,6 +6,8 @@ import json_config
 import pafy
 import vlc
 
+from youtube_videos import youtube_search
+
 app = Flask(__name__)
 Instance = vlc.Instance('--no-video')
 player = Instance.media_player_new()
@@ -17,6 +19,28 @@ def index():
 
 @app.route('/song', methods=['GET'])
 def youtube():
+    vid = request.args.get('vid')
+
+    
+    search = youtube_search(vid)
+    videoId = search[1][1]['id']['videoId']
+
+    url = 'https://www.youtube.com/watch?v=' + videoId
+    video = pafy.new(url)
+    streams = video.audiostreams
+    best = streams[3]
+    playurl = best.url
+    Media = Instance.media_new(playurl)
+    Media.get_mrl()
+    player.set_media(Media)
+    player.play()
+    display_message = {"song":"started"}
+    resp = jsonify(display_message)
+    resp.status_code = 200
+    return resp
+
+@app.route('/song_wo_ytdata', methods=['GET'])
+def wo_youtube():
     vid = request.args.get('vid')
     url = 'https://www.youtube.com/watch?v=' + vid
     video = pafy.new(url)
