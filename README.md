@@ -40,11 +40,13 @@ NOTE: For the NWoC participants. If you guys find any issue that is not already 
 * To run the server , use the command `pipenv run python3 server.py`
 
 ### To start the React Frontent
-* Clone the repo using `https://github.com/NJACKWinterOfCode/youtube_cli_flask.git`.
+* Clone the repo using `git clone https://github.com/NJACKWinterOfCode/youtube_cli_flask.git`.
 
 * Then go to the frontend directory using `cd youtube_cli_flask/youtube_mp3_frontend`.
 
 * Install the dependencies using `npm install --save`
+
+* Install tachyons using `npm install tachyons`
 
 * To start the react app, Use `npm start`.
 
