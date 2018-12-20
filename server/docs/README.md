@@ -40,11 +40,40 @@ This is the libvlc which is behind VLC, we can use this to play, control our mus
 - `Instance.media_player.stop()` - stop the media from playing
 
 
-### YouTubeData
+### [YouTubeData](../youtube_videos.py)
 
-This is YouTube's Data API to enable searching for videos in youtube.
+This is YouTube's Data API to enable searching videos in YouTube, the following two functions are part of the class `youtube_results`
 
-- `youtube_search('searchquery')` - returns a tuple of length 2, the first item is some 6            character string, and the second contains 50 videos with detailed info about each, each item      is a nested dict with - 'etag', 'id', 'kind', and 'snippet' where 'id' and 'snippet' are          nested further.
+- `youtube_search(searchquery)` - takes searchquery(str) as input and gives a JSON response,         which is a tuple of length 2, the first item is some 6 character string, and the second is a      list of 50(can be modified) items, each item is a dict with the following structure - 
+
+    ```JSON
+    {
+    "kind": "youtube#searchResult",
+    "etag": etag,
+    "id": {
+        "kind": string,
+        "videoId": string,
+        "channelId": string,
+        "playlistId": string
+    },
+    "snippet": {
+        "publishedAt": datetime,
+        "channelId": string,
+        "title": string,
+        "description": string,
+        "thumbnails": {
+        (key): {
+            "url": string,
+            "width": unsigned integer,
+            "height": unsigned integer
+        }
+        },
+        "channelTitle": string,
+        "liveBroadcastContent": string
+    }
+    }
+    ```
+- `youtube_related(related_to_videoid)` - gives a JSON response, same as the above, this has         a list of 20(can be modified) videos related to the given video_id(str)
 
 
 ### youtube-dl
@@ -53,12 +82,32 @@ This is needed by Pafy.
 
 
 
-## The server - 
+## [The server](../server.py) - 
+
+### Classes in server - 
+
+#### search_play_recommend
+
+Functions in this class - 
+
+- `search(search_query)` - uses `youtube_search(searchquery)` to get the list of videos and          returns the video_id of the first video in the list.
+
+- `play(video_id)` - takes video_id(str) as input, generates the URL, and plays the highest          available bitrate audio stream in VLC audio only mode, using pafy and vlc.
+
+- `recommend(video_id)` - takes video_id(str) as input, uses `youtube_related(video_id)` to get      the list of related videos, then it creates and returns a list of videos where each item is       a dict as shown -   
+
+    ```JSON
+    {
+    "id": str,
+    "title": str, 
+    }
+    ```
+
 
 The route() decorator tells Flask what URL should trigger which function, currently the URLs are -
 
 1. `/` - this just renders the index.html
-2. `/song` - here we get the search query from the front end and feed it to the YouTube Data API      to get the first video matching the query, and thus obtain the 11 character video_id and          append it to the url, to retrieve the YouTube video, select the highest bitrate audio stream,     and play it in VLC in audio only mode. Finally we send response 'song started' (in JSON           format) with 'OK' status code(200) to the front end.
+2. `/song` - here we get the search query from the front end, search for the song, play the song      and recommmend 20 more songs. Finally we send response 'song started' along with the list of      recommended songs (in JSON format) with 'OK' status code(200) to the front end.
 3. `/pause` - pause the song
 4. `/stop` - stop the song
 5. `/restart` - restart the song using stop and play
