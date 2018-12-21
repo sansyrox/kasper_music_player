@@ -1,0 +1,52 @@
+.side-menu-container {
+  position:fixed;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  width: 180px;
+  overflow-y: auto;
+  padding: 20px;
+  color: rgb(179, 179, 179);
+  margin: 0;
+  height:100%  
+  
+}
+
+.user-library-header {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-family: 'Proxima Thin', Georgia, sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 0 0 5px 0;
+  letter-spacing: 1px;
+}
+
+.side-menu-item {
+  list-style-type: none;
+  line-height: 28px;
+  font-size: 14px;
+  width: 140px;
+  cursor: pointer;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.side-menu-item:hover {
+  color: #fff;
+}
+
+.radio {
+  margin-bottom: 20px;
+}
+
+.side-menu-container .active {
+	margin-left: -3px;
+}
+
+.side-menu-container .active:before {
+	content: "";
+	border-left: 3px solid #ff0066 ;
+	position: relative;
+	left: -18px;
+}

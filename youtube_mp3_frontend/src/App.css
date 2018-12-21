@@ -1,24 +1,36 @@
 .App {
   text-align: center;
   background-color:#13182B;
-  position: absolute;
-  height:100%;
-  width: 100%
-  
 }
 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.left-side-section {
+  position:fixed;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  width: 180px;
+  overflow-y: auto;
+}
+
+.cardsection {
+  margin-left: 200px;
+  height:50%;
+  width:100% 
+}
+
+.container {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
 }
 
-.App-link {
-  color: #61dafb;
+.block {
+    width: 100px;    
 }
+
+.weekly_cont {
+  height:300px;
+}
+

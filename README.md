@@ -48,6 +48,8 @@ NOTE: For the NWoC participants. If you guys find any issue that is not already 
 
 * Install tachyons using `npm install tachyons`
 
+* Install react-coverflow using `npm install react-coverflow`
+
 * To start the react app, Use `npm start`.
 
 ## Tech Stack (Expected)
