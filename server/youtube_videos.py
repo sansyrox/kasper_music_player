@@ -1,3 +1,5 @@
+# API , video_id documentation : https://gist.github.com/dgp/1b24bf2961521bd75d6c
+
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 
@@ -7,7 +9,7 @@ YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
 class youtube_results:
-  def youtube_search(self, q, max_results=50,order="relevance", token=None, location=None, location_radius=None):
+  def youtube_search(self, q, max_results=50,order="relevance", token=None, location=None, location_radius=None, videoCategoryId="10"):
 
     youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
     developerKey=DEVELOPER_KEY)
@@ -39,7 +41,7 @@ class youtube_results:
       return(nexttok, videos)
 
 
-  def youtube_related(self, relatedto_videoid, max_results=20,order="relevance", token=None, location=None, location_radius=None):
+  def youtube_related(self, relatedto_videoid, max_results=20,order="relevance", token=None, location=None, location_radius=None, videoCategoryId="10"):
 
     youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
       developerKey=DEVELOPER_KEY)

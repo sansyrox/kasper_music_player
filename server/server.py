@@ -49,13 +49,21 @@ def index():
 def w_youtube():
     search_query = request.args.get('vid')      
     video_id = song.search(search_query)
-    recommended = song.recommend(video_id)
     song.play(video_id)
     
-    res = {"status":"song started", "items" : recommended}
+    res = {"status":"song started"}
     resp = jsonify(res)
     resp.status_code = 200
     return resp
+
+@app.route('/recommended', methods=['GET'])
+def recommended_songs():     
+    video_id = request.args.get('vid')
+    recommended = song.recommend(video_id)
+    res = {"items" : recommended}
+    resp = jsonify(res)
+    resp.status_code = 200
+    return resp    
 
 @app.route('/song_wo_ytdata', methods=['GET'])
 def wo_youtube():
