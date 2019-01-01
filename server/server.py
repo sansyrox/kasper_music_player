@@ -16,8 +16,8 @@ youtube = youtube_videos.youtube_results()
 class search_play_recommend:
     def search(self, search_query):
         search = youtube.youtube_search(search_query)
-        video_id = search[1][1]['id']['videoId']
-        return(video_id)
+        result = dict([('title', search[1][1]['snippet']['title']), ('id', search[1][1]['id']['videoId'])])
+        return(result)
 
     def play(self, video_id):
         url = 'https://www.youtube.com/watch?v=' + video_id
@@ -45,18 +45,15 @@ song = search_play_recommend()
 def index():
     return render_template('index.html')
 
-@app.route('/song', methods=['GET'])
+@app.route('/search', methods=['GET'])
 def w_youtube():
     search_query = request.args.get('vid')      
-    video_id = song.search(search_query)
-    song.play(video_id)
-    
-    res = {"status":"song started"}
+    res = song.search(search_query)
     resp = jsonify(res)
     resp.status_code = 200
     return resp
 
-@app.route('/recommended', methods=['GET'])
+@app.route('/recommend', methods=['GET'])
 def recommended_songs():     
     video_id = request.args.get('vid')
     recommended = song.recommend(video_id)
@@ -65,7 +62,7 @@ def recommended_songs():
     resp.status_code = 200
     return resp    
 
-@app.route('/song_wo_ytdata', methods=['GET'])
+@app.route('/play', methods=['GET'])
 def wo_youtube():
     video_id = request.args.get('vid')
     song.play(video_id)

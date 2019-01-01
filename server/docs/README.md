@@ -107,8 +107,9 @@ Functions in this class -
 The route() decorator tells Flask what URL should trigger which function, currently the URLs are -
 
 1. `/` - this just renders the index.html
-2. `/song` - here we get the search query from the front end, search for the song, play the song      and we send response 'song started' (in JSON format) with 'OK' status code(200) to the            front end.
-3. `/recommended` - we get the current song's video_id from the front end and recommmend 20 more      songs, and send the list of songs in JSON to the front end.
+2. `/search` - here we get the search query from the front end, search for the song, and return      the title and video_id of the top result.
+3. `/recommend` - we get the current song's video_id from the front end and recommmend 20 more       songs, and send the list of songs in JSON to the front end.
+4. `play` - this takes the video_id and starts playing the song
 4. `/pause` - pause the song
 5. `/stop` - stop the song
 6. `/restart` - restart the song using stop and play
