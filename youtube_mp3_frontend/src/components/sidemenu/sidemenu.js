@@ -1,7 +1,6 @@
 //Sidebar Component to navigate between different screens
 import React,{Component} from 'react';
 import './sidemenu.css';
-
 const handleClick = (name)  => {
     
 };
