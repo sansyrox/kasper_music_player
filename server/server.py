@@ -16,7 +16,7 @@ youtube = youtube_videos.youtube_results()
 class search_play_recommend:
     def search(self, search_query):
         search = youtube.youtube_search(search_query)
-        result = dict([('title', search[1][1]['snippet']['title']), ('id', search[1][1]['id']['videoId'])])
+        result = dict([('title', search[1][0]['snippet']['title']), ('id', search[1][0]['id']['videoId'])])
         return(result)
 
     def play(self, video_id):
