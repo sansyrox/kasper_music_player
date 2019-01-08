@@ -5,18 +5,21 @@ import os
 import json_config
 import pafy
 import vlc
-import youtube_videos
+from modules import youtube_videos
+from modules import coverpy
 
-app = Flask(__name__)
+app = Flask(__name__)   
 Instance = vlc.Instance('--no-video')
 player = Instance.media_player_new()
 url = ''
 youtube = youtube_videos.youtube_results()
+coverpy = coverpy.CoverPy()
 
 class search_play_recommend:
     def search(self, search_query):
         search = youtube.youtube_search(search_query)
-        result = dict([('title', search[1][0]['snippet']['title']), ('id', search[1][0]['id']['videoId'])])
+        art = coverpy.art(search_query)
+        result = dict([('title', search[1][0]['snippet']['title']), ('id', search[1][0]['id']['videoId']), ('album art', art)])
         return(result)
 
     def play(self, video_id):
@@ -106,3 +109,5 @@ def play():
 
 if __name__ == '__main__':
     app.run(debug=True,port=7070,host= '0.0.0.0')
+
+
