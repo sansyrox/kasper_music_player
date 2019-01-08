@@ -1,5 +1,6 @@
-# youtube_cli_flask
+# kasper_music_player 
 ---
+(previously known as youtube_cli_flask)
 >An app that would allow "music.youtube.com" to work in India
 
 NOTE: For the NWoC participants. If you guys find any issue that is not already created, create an issue in the repo and I'll add the difficulty labels accordingly.
