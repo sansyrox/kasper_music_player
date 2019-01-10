@@ -5,7 +5,8 @@ import SignIn from './components/signin/signin';
 import Register from './components/register/register';
 import SideMenu from './components/sidemenu/sidemenu';
 import Carousel from './components/carousel/carousel';
-import WeeklyTop from './components/weeklytop/weeklytop'
+import WeeklyTop from './components/weeklytop/weeklytop';
+import Recommendations from './components/recommendations/recommendations'
 
 const initialState = {
   input:'',
@@ -13,6 +14,7 @@ const initialState = {
     id:'',
     title:''
   },
+  recommendations:[],
   route:'signin',
   routesearch:false,
   play:false,
@@ -65,6 +67,11 @@ class App extends Component {
     this.setState({song:res})
     console.log(res)  
     this.setState({routesearch:true,play:false})
+
+    const req2= await fetch(`http://localhost:7070/recommend?vid=${this.state.song.id}`)
+    const res2= await req2.json() 
+    this.setState({recommendations:res2.items})
+    console.log(res2.items)
   }
 
   onPlayClick = () => {
@@ -118,7 +125,7 @@ class App extends Component {
                   </article>
                   <div>
                   <p className='f3 bb b--white blue w-25 pa1 mt4 '>Recommendations</p>
-                  <Carousel/>
+                  <Recommendations recommendations={this.state.recommendations}/>
                   </div>
                 </section>
               }
