@@ -7,8 +7,10 @@ import pafy
 import vlc
 from modules import youtube_videos
 from modules import coverpy
+from flask_cors import CORS
 
-app = Flask(__name__)   
+app = Flask(__name__)
+CORS(app)
 Instance = vlc.Instance('--no-video')
 player = Instance.media_player_new()
 url = ''
@@ -50,20 +52,20 @@ def index():
 
 @app.route('/search', methods=['GET'])
 def w_youtube():
-    search_query = request.args.get('vid')      
+    search_query = request.args.get('vid')
     res = song.search(search_query)
     resp = jsonify(res)
     resp.status_code = 200
     return resp
 
 @app.route('/recommend', methods=['GET'])
-def recommended_songs():     
+def recommended_songs():
     video_id = request.args.get('vid')
     recommended = song.recommend(video_id)
     res = {"items" : recommended}
     resp = jsonify(res)
     resp.status_code = 200
-    return resp    
+    return resp
 
 @app.route('/play', methods=['GET'])
 def wo_youtube():
