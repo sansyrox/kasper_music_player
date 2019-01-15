@@ -8,6 +8,8 @@ import Carousel from './components/carousel/carousel';
 import WeeklyTop from './components/weeklytop/weeklytop';
 import Recommendations from './components/recommendations/recommendations'
 
+const BASE_URL = 'http://localhost:7070/';
+
 const initialState = {
   input:'',
   song:{
@@ -62,25 +64,25 @@ class App extends Component {
   }
 
   toggleSearch = async () => {
-    const req= await fetch(`http://localhost:7070/search?vid=${this.state.input}`)
+    const req= await fetch(`${BASE_URL}search?vid=${this.state.input}`)
     const res= await req.json() 
     this.setState({song:res})
     console.log(res)  
     this.setState({routesearch:true,play:false})
 
-    const req2= await fetch(`http://localhost:7070/recommend?vid=${this.state.song.id}`)
+    const req2= await fetch(`${BASE_URL}recommend?vid=${this.state.song.id}`)
     const res2= await req2.json() 
     this.setState({recommendations:res2.items})
     console.log(res2.items)
   }
 
   onPlayClick = () => {
-    fetch(`http://localhost:7070/play?vid=${this.state.song.id}`)
+    fetch(`${BASE_URL}play?vid=${this.state.song.id}`)
     this.setState({play:!this.state.play})
   }
 
   onPauseClick = () => {
-    fetch(`http://localhost:7070/pause`)
+    fetch(`${BASE_URL}pause`)
     this.setState({play:!this.state.play})
   }
 
