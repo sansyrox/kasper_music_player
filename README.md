@@ -5,25 +5,25 @@
 (previously known as youtube_cli_flask)
 >An app that would allow "music.youtube.com" to work in India
 
-NOTE: For the NWoC participants. If you guys find any issue that is not already created, create an issue in the repo and I'll add the difficulty labels accordingly.
+NOTE (For the NWoC participants): If you guys find any issue that is not already created, create an issue in the repo and I'll add the difficulty labels accordingly.
 
-## List of contents
+## Contents
 - [History](#history)
 - [RoadMap](#roadmap)
 - [Installation](#installation)
 - [Tech Stack](#tech-stack-expected)
 
 ## History
-[(Back to top👆🏻)](#list-of-contents)
-<p> This project started as a custom media server created using flask and vlc to allow youtube streaming via terminal in search of creating a server even worked on less powerful devices like RaspberryPi.</p>
+[(Back to contents👆🏻)](#contents)
+<p> This project started as a custom media server created using flask and vlc to allow youtube streaming via terminal in search of creating a server. Even worked on less powerful devices like RaspberryPi.</p>
 
 ## RoadMap
-[(Back to top👆🏻)](#list-of-contents)
-<p> Currently as for initial Stage, I expect to make a "music.youtube.com" like app that works in India too and plays only mp3 music incorporating Youtube Suggestion too using Youtube API's or scrapping if required. </p>
-<p> As of now, the front-end and backend will be in a common repo and would be separated if the app shows some promise. </p>
+[(Back to contents👆🏻)](#contents)
+<p> Currently as for initial Stage, I expect to make a "music.youtube.com" like app that works in India too and plays only mp3 music. Incorporating Youtube Suggestion too, it uses Youtube API's or scrapping if required. </p>
+<p> As of now, the front-end and backend are be in a common repo and will be separated if the app shows some promise. </p>
 
 ## Installation
-[(Back to top👆🏻)](#list-of-contents)
+[(Back to contents👆🏻)](#contents)
 
 ### To start the Flask Server
 * Install vlc if not done already (`sudo apt-get install vlc` for Debian & `sudo snap install vlc` for Ubuntu)
@@ -34,7 +34,7 @@ NOTE: For the NWoC participants. If you guys find any issue that is not already 
 
 * Now `cd` into server directory via `cd server/`
 
-* Now install the dependenices by using the command `pipenv install`
+* Next, install the dependenices by using the command `pipenv install`
 
 * Before running the server, get your YouTube API key by following this guide -                https://developers.google.com/youtube/v3/getting-started
 
@@ -56,7 +56,7 @@ NOTE: For the NWoC participants. If you guys find any issue that is not already 
 * To start the react app, Use `npm start`.
 
 ## Tech Stack (Expected)
-[(Back to top👆🏻)](#list-of-contents)
+[(Back to contents👆🏻)](#contents)
 
 * Currently this is a Flask Backend
 * React Frontend (expected) repo.
