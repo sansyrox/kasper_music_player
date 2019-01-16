@@ -1,4 +1,4 @@
-<img src="Logo/Logo Kasper.jpg" width="350" title="Kasper Logo">
+﻿<img src="Logo/Logo Kasper.jpg" width="350" title="Kasper Logo">
 
 # kasper_music_player 
 ---
@@ -32,7 +32,7 @@ NOTE (For the NWoC participants): If you guys find any issue that is not already
 
 * Use the command `pip3 install pipenv`
 
-* Now `cd` into server directory via `cd server/`
+* Now `cd` into server directory via the `cd server/`
 
 * Next, install the dependenices by using the command `pipenv install`
 
@@ -40,7 +40,7 @@ NOTE (For the NWoC participants): If you guys find any issue that is not already
 
 * Use your own API key by modifying line 5 in [this](server/youtube_videos.py) file.
 
-* To run the server , use the command `pipenv run python3 server.py`
+* To run the server, use the command `pipenv run python3 server.py`
 
 ### To start the React Frontent
 * Clone the repo using `git clone https://github.com/NJACKWinterOfCode/youtube_cli_flask.git`.
@@ -60,6 +60,6 @@ NOTE (For the NWoC participants): If you guys find any issue that is not already
 
 * Currently this is a Flask Backend
 * React Frontend (expected) repo.
-* For Storing Data , a JSON file be used as of now.
+* For Storing Data , a JSON file will be used as of now.
 
 <p align="center"> Made with ❤ by <a href="https://github.com/stealthanthrax">Sanskar Jethi</a></p>
