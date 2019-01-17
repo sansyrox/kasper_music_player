@@ -21,7 +21,7 @@ class search_play_recommend:
     def search(self, search_query):
         search = youtube.youtube_search(search_query)
         art = coverpy.art(search_query)
-        result = dict([('title', search[1][0]['snippet']['title']), ('id', search[1][0]['id']['videoId']), ('album art', art)])
+        result = dict([('title', search[0][0]), ('id', search[0][1]), ('album art', art)])
         return(result)
 
     def play(self, video_id):
@@ -38,8 +38,8 @@ class search_play_recommend:
     def recommend(self, video_id):
         related_result = youtube.youtube_related(video_id)
         items = []
-        for video in related_result[1]:
-            items.append(dict([('title', video['snippet']['title']), ('id', video['id']['videoId'])]))
+        for video in related_result:
+            items.append(dict([('title', video[0]), ('id', video[1])]))
         return items
 
 song = search_play_recommend()
