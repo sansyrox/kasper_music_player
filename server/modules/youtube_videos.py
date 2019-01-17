@@ -1,4 +1,8 @@
-import webbrowser, requests, sys, bs4, re
+import webbrowser
+import requests
+import sys
+import bs4
+import re
 
 class youtube_results:
   def youtube_search(self, q):
@@ -38,7 +42,3 @@ class youtube_results:
         else:
             rel_videos.append([videoLinks2[i].get('title'),VideosId2.group('id')])
     return rel_videos
-
-
-
-  
