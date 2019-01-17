@@ -1,2 +1,3 @@
-youtube_cli_frontend/node_modules
-youtube_cli_frontend/package-lock.json
+youtube_mp3_frontend/node_modules
+server/modules/__pycache__/
+youtube_mp3_frontend/package-lock.json

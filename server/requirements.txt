@@ -5,3 +5,5 @@ pafy
 youtube-dl
 google-api-python-client
 flask-cors
+beautifulsoup4
+
