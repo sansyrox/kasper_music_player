@@ -2,8 +2,9 @@ python-vlc
 flask
 json_config
 pafy
-youtube-dl
+youtube-dl>=2019.1.17
 google-api-python-client
 flask-cors
 beautifulsoup4
+requests
 
