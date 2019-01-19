@@ -1,8 +1,6 @@
 //Section of cards to display the top songs
 import React,{Component} from 'react'
 
-const handleClick = (name)  => {
-    };
 
 class WeeklyTop extends Component {
 

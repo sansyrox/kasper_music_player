@@ -66,15 +66,15 @@ class App extends Component {
   toggleSearch = async () => {
     const req= await fetch(`${BASE_URL}search?vid=${this.state.input}`)
     const res= await req.json() 
-    console.log(res);
+    // console.log(res);
     this.setState({song:res})
-    console.log(res)  
+    // console.log(res)  
     this.setState({routesearch:true,play:false})
 
     const req2= await fetch(`${BASE_URL}recommend?vid=${this.state.song.id}`)
     const res2= await req2.json() 
     this.setState({recommendations:res2.items})
-    console.log(res2.items)
+    // console.log(res2.items)
   }
 
   onPlayClick = () => {

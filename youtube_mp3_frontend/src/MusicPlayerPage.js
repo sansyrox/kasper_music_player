@@ -4,40 +4,29 @@ import AudioPlayer from './components/audioplayer/audioplayer';
 
 const BASE_URL = 'http://localhost:7070/';
 
-const initialState = {
-    input:'',
-    song:{
-      id:'',
-      title:'',
-      url:''
-    },
-    recommendations:[1,23,5,6,1],
-    route:'signin',
-    routesearch:false,
-    play:false,
-    isSignedIn: false,
-    user: {
-      id: '',
-      name: '',
-      email:''
-    }
-  }
-
 class MusicPlayerPage extends Component {
 
     constructor(props) {
         super(props);
-        this.state = this.props;
-        this.setState({play:false});
+        this.state={URLLink:''};
+        // this.state.url = '';
     }
     
 
-    onPlayClick = () => {
-        fetch(`${BASE_URL}play?vid=${this.props.song.id}`).then((x)=>{
-            console.log(x)
-        })
+    onPlayClick = async () => {
+        const req= await fetch(`${BASE_URL}play?vid=${this.props.song.id}`)
+        const res= await req.json() 
+        // console.log(res);
         this.setState({play:!this.state.play})
+        // console.log(this.state);
+        this.setState({URLLink:res.url})
+        // console.log(res.url)
       }
+    
+      componentDidMount(){
+          this.onPlayClick()
+      }
+      
     
       onPauseClick = () => {
         fetch(`${BASE_URL}pause`)
@@ -45,16 +34,16 @@ class MusicPlayerPage extends Component {
       }
 
     render() {
-        console.log(this.props.recommendations)
+        // console.log(this.props.recommendations)
         return (
             <div>
-                <section class="tc pa3">
+                <section className="tc pa3">
                 <p className='f3 bb b--white blue w-25 pa1 mt2'>Top Result</p>
                   <article className="hide-child relative ba b--black-20 mw5 ml3">
                     <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/techno-triangle-album-cover-flyer-template-2f2a9d4851c7de5f4f2362d3352f42fc.jpg?ts=1477673828" className="db w-75 center" alt="Top Result" />
                     <div className="pa2 bt b--black-20">
                       <p className="f5 white mv1">{this.props.song.title}</p>
-                      { this.state.play===false?
+                      { this.state.play!==false?
                         <p className="link pointer tc ph3 ma2 pa1 db bg-animate bg-blue hover-bg-light-blue white f6 br2" onClick={this.onPlayClick}>> PLAY</p>
                         :<p className="link pointer tc ph3 ma2 pa1 db bg-animate bg-blue hover-bg-light-blue white f6 br2" onClick={this.onPauseClick}>|| PAUSE</p>
                       }
@@ -66,7 +55,8 @@ class MusicPlayerPage extends Component {
                   <p className='f3 bb b--white blue w-25 pa1 mt4 '>Recommendations</p>
                   <Recommendations recommendations={this.props.recommendations}/>
                   </div>
-                  <AudioPlayer audioURL={this.state.song} />
+                  {/* Add autoplay functionality */}
+                  <AudioPlayer audioURL={this.state.URLLink} />
                   </section>
             </div>
         );

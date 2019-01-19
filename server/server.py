@@ -30,10 +30,8 @@ class search_play_recommend:
         streams = video.audiostreams
         best = streams[3]
         playurl = best.url
-        Media = Instance.media_new(playurl)
-        Media.get_mrl()
-        player.set_media(Media)
-        player.play()
+        # print(playurl)
+        return playurl
 
     def recommend(self, video_id):
         related_result = youtube.youtube_related(video_id)
@@ -72,15 +70,17 @@ def recommended_songs():
 @app.route('/play', methods=['GET'])
 def wo_youtube():
     video_id = request.args.get('vid')
-    song.play(video_id)
-    display_message = {"status":"song started"}
+    url = song.play(video_id)
+    print(url)
+    display_message = {"status":"song started","url":url}
     resp = jsonify(display_message)
     resp.status_code = 200
     return resp
 
 @app.route('/pause')
 def pause():
-    player.pause()
+    """ Rn, doing nothing but expecting a post request to for user activity
+    """
     display_message = {"status":"song paused"}
     resp = jsonify(display_message)
     resp.status_code = 200
@@ -88,7 +88,8 @@ def pause():
 
 @app.route('/stop')
 def stop():
-    player.stop()
+    """ Rn, doing nothing but expecting a post request to for user activity
+    """
     display_message = {"status":"song stopped"}
     resp = jsonify(display_message)
     resp.status_code = 200
@@ -96,8 +97,8 @@ def stop():
 
 @app.route('/restart')
 def restart():
-    player.stop()
-    player.play()
+    """ Rn, doing nothing but expecting a post request to for user activity
+    """
     display_message = {"status":"song restarted"}
     resp = jsonify(display_message)
     resp.status_code = 200
@@ -105,7 +106,8 @@ def restart():
 
 @app.route('/resume')
 def play():
-    player.play()
+    """ Rn, doing nothing but expecting a post request to for user activity
+    """
     display_message = {"status":"song resumed"}
     resp = jsonify(display_message)
     resp.status_code = 200
