@@ -12,6 +12,14 @@
   
 }
 
+.logo {
+  max-width: 120px;
+  margin-right: 10%;
+  left: -10px;
+  margin-left: -18px;
+  /* height: 12rem; */
+}
+
 .user-library-header {
   font-weight: 300;
   text-transform: uppercase;
@@ -28,8 +36,8 @@
   font-size: 14px;
   width: 140px;
   cursor: pointer;
-text-overflow: ellipsis;
-white-space: nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .side-menu-item:hover {
