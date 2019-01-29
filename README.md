@@ -1,6 +1,6 @@
-﻿<img src="Logo/Logo Kasper.jpg" width="350" title="Kasper Logo">
+﻿<img src="Logo/logo.png" width="250" title="Kasper Logo">
 
-# kasper_music_player 
+# Kasper Music Player 
 ---
 (previously known as youtube_cli_flask)
 >An app that would allow "music.youtube.com" to work in India and other restricted countries
@@ -8,10 +8,14 @@
 NOTE (For the NWoC participants): If you guys find any issue that is not already created, create an issue in the repo and I'll add the difficulty labels accordingly.
 
 ## Contents
+- [# Kasper Music Player](#kasper-music-player)
+- [Contents](#contents)
 - [History](#history)
 - [RoadMap](#roadmap)
 - [Installation](#installation)
-- [Tech Stack](#tech-stack-expected)
+  - [To start the Flask Server](#to-start-the-flask-server)
+  - [To start the React Frontent](#to-start-the-react-frontent)
+- [Tech Stack (Expected)](#tech-stack-expected)
 
 ## History
 [(Back to contents👆🏻)](#contents)
