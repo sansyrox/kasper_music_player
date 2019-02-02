@@ -26,7 +26,7 @@ NOTE (For the NWoC participants): If you guys find any issue that is not already
 <p> Currently as for initial Stage, I expect to make a "music.youtube.com" like app that works in India too and plays only mp3 music. Incorporating Youtube Suggestion too, it uses Youtube API's or scrapping if required. </p>
 <p> As of now, the front-end and backend are be in a common repo and will be separated if the app shows some promise. </p>
 
-UI Refactor -> Connect a DataBase(FireBase, until a better option available) -> Add Authentication -> Add API for PlayLists -> Likes -> Support For Different Platforms
+UI Refactor(Including Audio Player) -> Try to get Cover Art(Try Spotify API) -> Connect a DataBase(FireBase, until a better option available) -> Add Authentication -> Add API for PlayLists -> Likes -> Support For Different Platforms
 
 ## Installation
 [(Back to contents👆🏻)](#contents)
