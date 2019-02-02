@@ -7,11 +7,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:#13182B;
+  background-color:#020204;
   
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.red-heading-color{
+  color: #a80739;
+}
+
+.buttonColor{
+  background-color: #a80739;
+  color: #c9d4ed;
 }

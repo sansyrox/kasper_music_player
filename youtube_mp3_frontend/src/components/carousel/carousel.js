@@ -1,6 +1,7 @@
 //A carousel of cards that displays the recommended songs
 import React,{Component} from 'react'
 import Coverflow from 'react-coverflow';
+import './Carousel.css';
 
 class Carousel extends Component {
 
@@ -12,7 +13,7 @@ class Carousel extends Component {
   }
   render() {
     return (
-      <div>        
+      <div id="carousel">        
         <Coverflow
         width="800" height="200"
         displayQuantityOfSide={2}
@@ -40,4 +41,4 @@ class Carousel extends Component {
     );
   }       
 }
-export default Carousel  
+export default Carousel;
