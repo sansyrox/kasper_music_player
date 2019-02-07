@@ -17,7 +17,7 @@ class SideMenu extends Component {
         <li onClick={ handleClick } className={this.props.title === 'Browse' ? 'active side-menu-item hover-bg-blue pa1 bb b-white bb b-white': 'side-menu-item hover-bg-blue pa1 bb b-white'}>Browse</li>
         <li className='side-menu-item hover-bg-blue pa1 bb b-white'>Recently Played</li>
         <li className='side-menu-item  hover-bg-blue pa1 bb b-white'>Your Playlist</li>
-        <p onClick={() => this.props.onRouteChange('signout')} className='f3 link dim blue pointer mt6'>Sign Out </p>
+        <p onClick={() => this.props.onRouteChange('signout')} className='f3 link signout-color pointer mt6'>Sign Out </p>
       </ul>
     );
   }

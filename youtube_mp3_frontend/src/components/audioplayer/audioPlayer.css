@@ -10,6 +10,13 @@
     padding-bottom: 120px;
     padding-top: 10px;
     top:90%;
-    background-color: #357edd;
-    color: #357edd;
+    background-color: #a80739;
+    color: #a80739;
+}
+
+.playButton{
+    color: #29256d;
+    width: 30px;
+    height: 30px;
+
 }

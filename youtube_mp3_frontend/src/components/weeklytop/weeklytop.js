@@ -1,6 +1,6 @@
 //Section of cards to display the top songs
 import React,{Component} from 'react'
-
+import './index-color.css'
 
 class WeeklyTop extends Component {
 
@@ -12,15 +12,12 @@ class WeeklyTop extends Component {
                     <div className="pa2 ph3-ns pb3-ns">
                         <div className="dt w-100 mt1">
                             <div className="dtc">
-                                <h1 className="f5 f4-ns mv0">Album Name</h1>
+                                <h1 className="f5 f4-ns mv0 red-font-color">Album Name</h1>
                             </div>
                             <div className="dtc tr">
-                                <h2 className="f5 mv0">#1</h2>
+                                <h2 className="f5 mv0 red-font-color">#1</h2>
                             </div>
                         </div>
-                        <p className="f6 lh-copy measure mt2 near-white">
-                        Description
-                        </p>
                     </div>
                 </article>
                 <article className="weekly_cont br2 ba mr3 white b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
@@ -28,15 +25,12 @@ class WeeklyTop extends Component {
                     <div className="pa2 ph3-ns pb3-ns">
                         <div className="dt w-100 mt1">
                             <div className="dtc">
-                                <h1 className="f5 f4-ns mv0">Album Name</h1>
+                                <h1 className="f5 f4-ns mv0 red-font-color">Album Name</h1>
                             </div>
                             <div className="dtc tr">
-                                <h2 className="f5 mv0">#2</h2>
+                                <h2 className="f5 mv0 red-font-color">#2</h2>
                              </div>
                         </div>
-                        <p className="f6 lh-copy measure mt2 near-white">
-                        Description
-                         </p>
                         </div>
                 </article>
                 <article className="weekly_cont br2 ba mr3 white b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
@@ -44,15 +38,12 @@ class WeeklyTop extends Component {
                     <div className="pa2 ph3-ns pb3-ns">
                         <div className="dt w-100 mt1">
                             <div className="dtc">
-                                <h1 className="f5 f4-ns mv0">Album Name</h1>
+                                <h1 className="f5 f4-ns mv0 red-font-color">Album Name</h1>
                             </div>
                             <div className="dtc tr">
-                                <h2 className="f5 mv0">#3</h2>
+                                <h2 className="f5 mv0 red-font-color">#3</h2>
                             </div>
                          </div>
-                    <p className="f6 lh-copy measure mt2 near-white">
-                    Description
-                    </p>
                     </div>
                 </article>
                 <article className="weekly_cont br2 ba mr3 white b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
@@ -60,15 +51,13 @@ class WeeklyTop extends Component {
                     <div className="pa2 ph3-ns pb3-ns">
                         <div className="dt w-100 mt1">
                             <div className="dtc">
-                                <h1 className="f5 f4-ns mv0">Album Name</h1>
+                                <h1 className="f5 f4-ns mv0 red-font-color">Album Name</h1>
                             </div>
                             <div className="dtc tr">
-                                <h2 className="f5 mv0">#4</h2>
+                                <h2 className="f5 mv0 red-font-color">#4</h2>
                             </div>
                         </div>
-                        <p className="f6 lh-copy measure mt2 near-white">
-                         Description
-                        </p>
+                        
                     </div>
                 </article>
             </div>    
