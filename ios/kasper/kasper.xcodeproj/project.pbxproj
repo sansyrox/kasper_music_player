@@ -17,9 +17,12 @@
 		6B080DCE2257BFBB00FEC35C /* LoginAndSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B080DCD2257BFBB00FEC35C /* LoginAndSignUpViewController.swift */; };
 		6B080DD02257C06700FEC35C /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B080DCF2257C06700FEC35C /* LoginScreenViewController.swift */; };
 		6B080DD22257C08A00FEC35C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B080DD12257C08A00FEC35C /* SignUpViewController.swift */; };
+		6B41CF0122590B69007AAE24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B41CF0022590B69007AAE24 /* GoogleService-Info.plist */; };
+		CA8ACDC991F64F526D47E64A /* Pods_kasper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7208AAF3066CD5DC5271BD /* Pods_kasper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67E805EAD1A986BBAAFFCA98 /* Pods-kasper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kasper.release.xcconfig"; path = "Target Support Files/Pods-kasper/Pods-kasper.release.xcconfig"; sourceTree = "<group>"; };
 		6B080DB022573DD600FEC35C /* kasper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kasper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B080DB322573DD600FEC35C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B080DB522573DD600FEC35C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +35,9 @@
 		6B080DCD2257BFBB00FEC35C /* LoginAndSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndSignUpViewController.swift; sourceTree = "<group>"; };
 		6B080DCF2257C06700FEC35C /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 		6B080DD12257C08A00FEC35C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		6B41CF0022590B69007AAE24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74353F4901E39F3FB28C5EFD /* Pods-kasper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kasper.debug.xcconfig"; path = "Target Support Files/Pods-kasper/Pods-kasper.debug.xcconfig"; sourceTree = "<group>"; };
+		8D7208AAF3066CD5DC5271BD /* Pods_kasper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kasper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8ACDC991F64F526D47E64A /* Pods_kasper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +57,8 @@
 			children = (
 				6B080DB222573DD600FEC35C /* kasper */,
 				6B080DB122573DD600FEC35C /* Products */,
+				F59532FC628DD9659315E687 /* Pods */,
+				AB98BC358271197CA94BF328 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +79,7 @@
 				6B080DCA2257B9D400FEC35C /* View */,
 				6B080DCB2257B9F100FEC35C /* Extra Assets */,
 				6B080DC122573DD700FEC35C /* Info.plist */,
+				6B41CF0022590B69007AAE24 /* GoogleService-Info.plist */,
 			);
 			path = kasper;
 			sourceTree = "<group>";
@@ -111,6 +121,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AB98BC358271197CA94BF328 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D7208AAF3066CD5DC5271BD /* Pods_kasper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F59532FC628DD9659315E687 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74353F4901E39F3FB28C5EFD /* Pods-kasper.debug.xcconfig */,
+				67E805EAD1A986BBAAFFCA98 /* Pods-kasper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B080DC422573DD700FEC35C /* Build configuration list for PBXNativeTarget "kasper" */;
 			buildPhases = (
+				A2000D5EF07F2E328C541BC3 /* [CP] Check Pods Manifest.lock */,
 				6B080DAC22573DD600FEC35C /* Sources */,
 				6B080DAD22573DD600FEC35C /* Frameworks */,
 				6B080DAE22573DD600FEC35C /* Resources */,
+				FB2F9E8E3E478F4261925BAE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,12 +199,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B080DC022573DD700FEC35C /* LaunchScreen.storyboard in Resources */,
+				6B41CF0122590B69007AAE24 /* GoogleService-Info.plist in Resources */,
 				6B080DBD22573DD700FEC35C /* Assets.xcassets in Resources */,
 				6B080DBB22573DD600FEC35C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2000D5EF07F2E328C541BC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kasper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB2F9E8E3E478F4261925BAE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kasper/Pods-kasper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kasper/Pods-kasper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6B080DAC22573DD600FEC35C /* Sources */ = {
@@ -332,6 +419,7 @@
 		};
 		6B080DC522573DD700FEC35C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74353F4901E39F3FB28C5EFD /* Pods-kasper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -341,7 +429,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sanskar.kasper;
+				PRODUCT_BUNDLE_IDENTIFIER = sanskar.kasper.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -350,6 +438,7 @@
 		};
 		6B080DC622573DD700FEC35C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67E805EAD1A986BBAAFFCA98 /* Pods-kasper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -359,7 +448,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sanskar.kasper;
+				PRODUCT_BUNDLE_IDENTIFIER = sanskar.kasper.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

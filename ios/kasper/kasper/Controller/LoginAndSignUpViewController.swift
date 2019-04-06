@@ -10,7 +10,16 @@ import UIKit
 
 class LoginAndSignUpViewController: UIViewController {
 
-    override func viewDidLoad() {
+	@IBAction func Login(_ sender: Any) {
+		
+		performSegue(withIdentifier: "LoginScreen", sender: self)
+	}
+	@IBAction func SignUp(_ sender: Any) {
+		
+		performSegue(withIdentifier: "SignUpScreen", sender: self)
+		
+	}
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

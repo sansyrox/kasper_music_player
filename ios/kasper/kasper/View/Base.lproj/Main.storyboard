@@ -124,19 +124,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="SignUp:" destination="bWV-FM-Dbo" eventType="touchUpInside" id="dmD-TU-KhV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-n7-QNo">
                                 <rect key="frame" x="41" y="456" width="292" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="Login:" destination="bWV-FM-Dbo" eventType="touchUpInside" id="iAs-aI-wzo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zSi-ae-rZU"/>
                     </view>
                     <connections>
-                        <segue destination="2IB-VE-XSR" kind="presentation" identifier="LoginScreen" id="h2a-E4-Wl1"/>
+                        <segue destination="2IB-VE-XSR" kind="showDetail" identifier="LoginScreen" id="h2a-E4-Wl1"/>
                         <segue destination="efO-Qt-dOG" kind="presentation" identifier="SignUpScreen" id="N4D-nZ-jbg"/>
                     </connections>
                 </viewController>
@@ -171,11 +177,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="2IB-VE-XSR" eventType="touchUpInside" id="Mkq-kT-A1U"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wTg-ii-Qip"/>
                     </view>
+                    <connections>
+                        <outlet property="emailInput" destination="TnO-WT-Ib8" id="tyu-M3-uSE"/>
+                        <outlet property="passwordInput" destination="J2T-ue-sed" id="6uK-bS-doM"/>
+                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="TabBarController" id="BK5-Bl-UdL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJL-MO-QEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -215,11 +229,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpButton:" destination="efO-Qt-dOG" eventType="touchUpInside" id="cYZ-si-eb4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MvA-Sd-T90"/>
                     </view>
+                    <connections>
+                        <outlet property="emailInputField" destination="ZYi-Jc-wrG" id="aLf-Q0-Ocu"/>
+                        <outlet property="passwordInputField" destination="iLw-Fx-UeI" id="R4p-Gx-ABI"/>
+                        <outlet property="userNameInputField" destination="8S5-Sg-f4m" id="exI-rc-64O"/>
+                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="MainScreenSegue" id="MyD-Mr-agd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sci-Z6-HuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,4 +272,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MyD-Mr-agd"/>
+    </inferredMetricsTieBreakers>
 </document>
