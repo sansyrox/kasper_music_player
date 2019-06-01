@@ -48,7 +48,7 @@ UI Refactor(Including Audio Player) -> Add Travis-> Try to get [Cover Art](https
 
 * To run the server, use the command `pipenv run python3 server.py`
 
-### To start the React Frontent
+### To start the React Frontend
 * Clone the repo using `git clone https://github.com/NJACKWinterOfCode/youtube_cli_flask.git`.
 
 * Then go to the frontend directory using `cd youtube_cli_flask/youtube_mp3_frontend`.
@@ -65,7 +65,8 @@ UI Refactor(Including Audio Player) -> Add Travis-> Try to get [Cover Art](https
 [(Back to contents👆🏻)](#contents)
 
 * Currently this is a Flask Backend
-* React Frontend (expected) repo.
-* For Storing Data , a JSON file will be used as of now.
+* React Frontend.
+* Native Swift for IOS App
+* For Storing Data , Firebase will be used.
 
 <p align="center"> Made with ❤ by <a href="https://github.com/stealthanthrax">Sanskar Jethi</a></p>
