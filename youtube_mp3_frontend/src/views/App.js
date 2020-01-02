@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchBar from './components/searchbar/searchbar';
-import SignIn from './components/signin/signin';
-import Register from './components/register/register';
-import SideMenu from './components/sidemenu/sidemenu';
+import SearchBar from '../components/searchbar/searchbar';
+import SignIn from '../components/signin/signin';
+import Register from '../components/register/register';
+import SideMenu from '../components/sidemenu/sidemenu';
 import MusicPlayerPage from './MusicPlayerPage';
 import LandingPage from './LandingPage';
+import Cookies from 'universal-cookie';
 
 const BASE_URL = 'http://localhost:7070/';
 
@@ -66,15 +67,13 @@ class App extends Component {
   toggleSearch = async () => {
     const req= await fetch(`${BASE_URL}search?vid=${this.state.input}`)
     const res= await req.json() 
-    // console.log(res);
     this.setState({song:res})
-    // console.log(res)  
     this.setState({routesearch:true,play:false})
 
     const req2= await fetch(`${BASE_URL}recommend?vid=${this.state.song.id}`)
     const res2= await req2.json() 
+    console.log(res2)
     this.setState({recommendations:res2.items})
-    // console.log(res2.items)
   }
 
   onPlayClick = () => {
@@ -88,31 +87,38 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
+    const cookies = new Cookies();
+    console.log(cookies.get("loggedIn"))
+
+    if (cookies.get("loggedIn")==="true") {
+      // console.log(this.state.isSignedIn);
+      // this.setState({isSignedIn: true})
+      return (<div className='flex'>
+      <SideMenu isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange}/>
+      <div className='cardsection flex flex-column'>
+        <div>
+          <SearchBar isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange} toggleSearch={this.toggleSearch} onInputChange={this.onInputChange}/>
+        </div>
         {
-          this.state.route==='home'?
-          (
-          <div className='flex'>
-            <SideMenu isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
-            <div className='cardsection flex flex-column'>
-              <div>
-                <SearchBar isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange} toggleSearch={this.toggleSearch} onInputChange={this.onInputChange}/>
-              </div>
-              {
-                this.state.routesearch===false?<LandingPage />:<MusicPlayerPage song={this.state.song} recommendations={this.state.recommendations}/>
-              }
-            </div>
-          </div>
-          )
-          : (
-          (this.state.route==='signin')||(this.state.route==='signout') ?
-          <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-          :<Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>  
-           )
+          this.state.routesearch===false?<LandingPage />:<MusicPlayerPage song={this.state.song} recommendations={this.state.recommendations}/>
         }
       </div>
-    );
+    </div>)
+    }
+    else {
+      return (
+        <div className="App">
+          {
+            (this.state.route==='signin')||(this.state.route==='signout') ?
+            <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+            :<Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>  
+          }
+        </div>
+      );
+      
+    }
+
+    
   }
 }
 

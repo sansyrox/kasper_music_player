@@ -1,77 +1,198 @@
 import React from 'react';
 import './SignIn.css';
+import firebase from "firebase";
+import Cookies from 'universal-cookie';
 
 class SignIn extends React.Component {
   constructor(){
     super();
     this.state={
-      signInEmail: '',
-      signInPassword: ''
+      signUpForm: {
+        name: "",
+        email: "",
+        password: ""
+      },
+      signInForm: {
+          email: "",
+          password: ""
+      }
+      ,
+      error: null,
+      isActive: ""
     }
+
   }
 
-  onEmailChange = (event) => {
-    this.setState({signInEmail:event.target.value});
-  }
 
-  onPasswordChange = (event) => {
-    this.setState({signInPassword:event.target.value});
-  }
+  deactivate_right_panel =()=> {
+    this.setState({isActive: ""})
 
-  
-  onSubmitSignIn = () => {
-    if(this.state.signInEmail==="admin" && this.state.signInPassword==="admin")
-      {
-        this.props.loadUser({email:this.state.email});
-        this.props.onRouteChange('home');
-      }  
-    else
-      {
-        alert("Wrong login credentials! Please try again");
-      }  
+    console.log(this.state);
     
   }
+
+  activate_right_panel=()=> {
+    this.setState({isActive: "right-panel-active"})
+    console.log(this.state);
+  }
+
+ 
+
+  onSignUpEmailChange = (event) => {
+    let signUpForm = {...this.state.signUpForm}
+    signUpForm["email"] = event.target.value
+    this.setState({signUpForm});
+  }
+
+  onSignUpPasswordChange = (event) => {
+    let signUpForm = {...this.state.signUpForm}
+    signUpForm["password"] = event.target.value
+    this.setState({signUpForm});
+  }
+
+  onSignUpNameChange = (event) => {
+    let signUpForm = {...this.state.signUpForm}
+    signUpForm["name"] = event.target.value
+    this.setState({signUpForm});
+  }
+
+  onSignInEmailChange = (event) => {
+    let signInForm = {...this.state.signInForm}
+    signInForm["name"] = event.target.value
+    this.setState({signInForm});
+  }
+
+
+  onSignInPasswordChange = (event) => {
+    let signInForm = {...this.state.signInForm}
+    signInForm["password"] = event.target.value
+    this.setState({signInForm});
+  }
+
+  signUp = (event) => {
+    event.preventDefault()
+    firebase.auth()
+        .createUserWithEmailAndPassword(this.state.signUpForm.email, this.state.signUpForm.password)
+        .then(data => {
+        data.user
+            .updateProfile({
+            displayName: this.state.signUpForm.name
+            })
+            .then(() => {
+                // this.isActive=true;
+                this.deactivate_right_panel()
+            });
+
+        })
+        .catch(err => {
+        this.error = err.message;
+        });
+
+    }
+
+    login = (event) => {
+      event.preventDefault()
+      
+      
+      firebase.auth()
+      .signInWithEmailAndPassword(this.state.signInForm.email, this.state.signInForm.password)
+      .then(() => {
+        console.log(this.state);
+        const cookies = new Cookies();
+        let expiringDate = new Date();
+        expiringDate.setHours(expiringDate.getHours()+1)
+        cookies.set('loggedIn', 'true', { path: '/' , expires: expiringDate});
+        console.log(cookies.get('loggedIn'));
+        window.location.reload(false);
+      })
+      .catch(err => {
+      this.error = err.message;
+      });
+  }
+
+
   render() {  
     return (
-      <article className="br3 ba mv4 w-100 w-50-m w-25-l mw6 shadow-5 center b--blue">
-        <main className="pa4 black-80">
-          <div className="measure">
-            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-              <legend className="f1 fw6 ph0 mh0 red-font-color">Sign In</legend>
-              <div className="mt3">
-                <label className="db fw6 lh-copy f6 red-font-color" htmlFor="email-address">Email</label>
-                <input
-                  className="pa2 input-reset ba br-pill bg-transparent hover-bg-light-blue hover-white w-100"
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
-                  />
+      <div className="home">
+        <div id="container" className= {"container " + this.state.isActive}>
+        <div className="form-container sign-up-container">
+          <form action="#" onSubmit={this.signUp}>
+          <h1>Create Account</h1>
+            <span>Use your email for registration</span>
+            <input type="text" 
+                placeholder="Name"
+                id="name"
+                name="name"
+                required
+                autoFocus
+                onChange={this.onEmailChange}
+                v-model="signUpForm.name"
+            />
+            <input type="email" 
+                placeholder="Email"
+                name="email"
+                required
+                autoFocus
+                v-model="signUpForm.email"
+                />
+            <input 
+                type="password" 
+                placeholder="Password"
+                id="password"
+                name="password"
+                required
+                v-model="signUpForm.password"
+                />
+            
+            <button>Sign Up</button>
+      </form>
+    </div>
+    <div className="form-container sign-in-container">
+
+        <form onSubmit={this.login} > 
+        {/* Form on submit do that  */}
+        {/* "login" */}
+          <h1>Login</h1>
+            <span>Use your email to login</span>
+           
+            <input type="email" 
+                placeholder="Email"
+                name="email"
+                required
+                autoFocus
+                onChange={this.onSignInEmailChange}
+                />
+            <input 
+                type="password" 
+                placeholder="Password"
+                id="password"
+                name="password"
+                required
+                onChange={this.onSignInPasswordChange}
+                />
+            <button>Sign In</button>
+      </form>
+
+          </div>
+          <div className="overlay-container">
+              <div className="overlay">
+                  <div className="overlay-panel overlay-left">
+                      <h1>Welcome Back!</h1>
+                      <p>
+                          To keep connected with us please login with your personal info
+                      </p>
+                      <button className="ghost" id="signIn" onClick={this.deactivate_right_panel}>Sign In</button>
+                  </div>
+                  <div className="overlay-panel overlay-right">
+                      <h1>Hello, Friend!</h1>
+                      <p>Enter your personal details and start journey with us</p>
+                      <button className="ghost" id="signUp" onClick={this.activate_right_panel}>Sign Up</button>
+                  </div>
               </div>
-              <div className="mv3">
-                <label className="db fw6 lh-copy f6 red-font-color" htmlFor="password">Password</label>
-                <input
-                  className="b pa2 input-reset ba br-pill bg-transparent hover-bg-light-blue hover-white w-100"
-                  type="password"
-                  name="password"
-                  id="password"
-                  onChange={this.onPasswordChange}
-                  />
-              </div>
-            </fieldset>
-              <div className="">
-                <input
-                  onClick={this.onSubmitSignIn}
-                  className="br-pill ph3 pv2 white input-reset ba red-background-color grow pointer f6 dib"
-                  type="submit"
-                  value="Sign in"/>
-              </div>
-              <div className="lh-copy mt3">
-                <p onClick={() => this.props.onRouteChange('register')} className="f6 link dim white db pointer">Register</p>
-              </div>
-          </div>      
-        </main>
-      </article>
+          </div>
+          {/* <div>{{error}}</div> */}
+        </div>
+      </div>
     );
   }  
 }

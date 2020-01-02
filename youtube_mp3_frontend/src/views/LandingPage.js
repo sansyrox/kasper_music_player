@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Carousel from './components/carousel/carousel';
-import WeeklyTop from './components/weeklytop/weeklytop';
-import './index.css';
+import Carousel from '../components/carousel/carousel';
+import WeeklyTop from '../components/weeklytop/weeklytop';
+import '../index.css';
 
 class LandingPage extends Component {
     render() {

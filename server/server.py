@@ -37,7 +37,7 @@ class search_play_recommend:
         related_result = youtube.youtube_related(video_id)
         items = []
         for video in related_result:
-            items.append(dict([('title', video[0]), ('id', video[1])]))
+            items.append(dict([('title', video[0]), ('id', video[1]), ('img_url',video[2])]))
         return items
 
 song = search_play_recommend()
