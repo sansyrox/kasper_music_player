@@ -34,6 +34,10 @@ class App extends Component {
   constructor(){
     super();
     this.state = initialState;
+    this.recentSong = [];
+    
+    
+    this.recentRec = [];
   }
 
   loadUser = (data) => {
@@ -46,9 +50,18 @@ class App extends Component {
     }) 
   }
 
+  componentDidMount() {
+    // this.recentSong = window.sessionStorage.getItem("songCache").split(",").slice(0,1);
+    
+  }
+
   onRouteChange = (route) => {
     if(route === 'signout') {
       this.setState(initialState);
+      const cookies = new Cookies();
+      console.log(cookies.get("loggedIn"))
+      cookies.set("loggedIn","false")
+      window.location.reload()
     }
     else if (route === 'home') {
       this.setState({isSignedIn:true});
@@ -66,14 +79,13 @@ class App extends Component {
 
   toggleSearch = async () => {
     const req= await fetch(`${BASE_URL}search?vid=${this.state.input}`)
-    const res= await req.json() 
+    const res= await req.json()
     this.setState({song:res})
     this.setState({routesearch:true,play:false})
-
-    const req2= await fetch(`${BASE_URL}recommend?vid=${this.state.song.id}`)
-    const res2= await req2.json() 
-    console.log(res2)
-    this.setState({recommendations:res2.items})
+    console.log(res);
+    // this.refs.searchtoggle
+    // this.
+    
   }
 
   onPlayClick = () => {
@@ -86,6 +98,10 @@ class App extends Component {
     this.setState({play:!this.state.play})
   }
 
+  onSetInput = (value) => {
+    this.setState({ input: value});
+  }
+
   render() {
     const cookies = new Cookies();
     console.log(cookies.get("loggedIn"))
@@ -94,13 +110,22 @@ class App extends Component {
       // console.log(this.state.isSignedIn);
       // this.setState({isSignedIn: true})
       return (<div className='flex'>
-      <SideMenu isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange}/>
+      <SideMenu isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange} />
       <div className='cardsection flex flex-column'>
         <div>
-          <SearchBar isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange} toggleSearch={this.toggleSearch} onInputChange={this.onInputChange}/>
+          {
+            window.location.pathname.split('/')[1]!=="recent"?
+            <SearchBar isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange} toggleSearch={this.toggleSearch}  onInputChange={this.onInputChange}/>:
+            ''
+          }
+          
         </div>
+        
         {
-          this.state.routesearch===false?<LandingPage />:<MusicPlayerPage song={this.state.song} recommendations={this.state.recommendations}/>
+          window.location.pathname.split('/')[1]==="recent"?
+          <MusicPlayerPage song={this.recentSong} recent={"recent"} recommendations={this.state.recommendations}/>
+          :
+          this.state.routesearch===false?<LandingPage toggleSearch={this.toggleSearch} onSetInput={this.onSetInput} />:<MusicPlayerPage ref="searchtoggle" song={this.state.song} recommendations={this.state.recommendations}/>
         }
       </div>
     </div>)

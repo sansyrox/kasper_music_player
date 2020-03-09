@@ -47,7 +47,8 @@ class AudioPlayer extends Component {
                     className={"playButton"}
                     playing={false}
                     seeking={true}
-                    onTogglePlay={this.playToggle} />
+                    onTogglePlay={this.playToggle}
+                    autoPlay={true} />
             </div>
         );
     }

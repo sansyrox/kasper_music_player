@@ -77,6 +77,27 @@ def wo_youtube():
     resp.status_code = 200
     return resp
 
+
+@app.route('/recommend_carousel', methods=['GET'])
+def carousel():
+    response = youtube.recommended_carousel()
+    title,vid = [i[0] for i in response] , [i[1] for i in response]
+    print(title,vid)
+    display_message = {"titles": title, "videos": vid}
+    resp = jsonify(display_message)
+    resp.status_code = 200
+    return resp
+
+@app.route('/weekly_tops', methods=['GET'])
+def weekly_tops():
+    response = youtube.weekly_top()
+    title,vid = [i[0] for i in response] , [i[1] for i in response]
+    print(title,vid)
+    display_message = {"titles": title, "videos": vid}
+    resp = jsonify(display_message)
+    resp.status_code = 200
+    return resp
+
 @app.route('/pause')
 def pause():
     """ Rn, doing nothing but expecting a post request to for user activity

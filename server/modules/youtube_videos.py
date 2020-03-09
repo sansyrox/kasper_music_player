@@ -28,18 +28,11 @@ class youtube_results:
     related = requests.get("https://www.youtube.com/watch?v=" + relatedto_videoid)
     print(relatedto_videoid)
     related.raise_for_status()
-    
-
     searchSoup2 = bs4.BeautifulSoup(related.content,features="html.parser")
     videoLinks2 = searchSoup2.select('a.content-link.spf-link.yt-uix-sessionlink.spf-link')
-   
-    # print(len(videoLinks2), len(image_link))
-    
-    
     max_results2 = min(20,len(videoLinks2))
     rel_videos = []
-    # print()
-    # print(videoLinks2)
+  
     for i in range(max_results2):    
         regex2 = re.compile(r'/(watch\?v=|embed/|v/|.+\?v=)?(?P<id>[A-Za-z0-9\-=_]{11})')
         VideosId2 = regex2.match(videoLinks2[i].get('href'))
@@ -51,3 +44,26 @@ class youtube_results:
             
    
     return rel_videos
+  
+  # 
+
+  def weekly_top(self):
+    related = requests.get("https://www.youtube.com/watch?v=q0hyYWKXF0Q&list=PLI_7Mg2Z_-4I-W_lI55D9lBUkC66ftHMg")
+    related.raise_for_status()
+    searchSoup2 = bs4.BeautifulSoup(related.content,features="html.parser")
+    video_links = searchSoup2.find_all('li', {'class':'yt-uix-scroller-scroll-unit'})
+    print(video_links)
+    video_links = [(i.get('data-video-title'), i.get('data-video-id')) for i in video_links]
+    return video_links
+  
+
+
+  def recommended_carousel(self):
+    related = requests.get("https://www.youtube.com/watch?v=qVdPh2cBTN0&list=RDqVdPh2cBTN0")
+    related.raise_for_status()
+    searchSoup2 = bs4.BeautifulSoup(related.content,features="html.parser")
+    video_links = searchSoup2.find_all('li', {'class':'yt-uix-scroller-scroll-unit'})
+    print(video_links)
+    video_links = [(i.get('data-video-title'), i.get('data-video-id')) for i in video_links]
+    print(video_links)
+    return video_links

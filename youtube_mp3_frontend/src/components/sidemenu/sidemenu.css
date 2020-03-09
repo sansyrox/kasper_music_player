@@ -63,3 +63,12 @@
   color:#e50a4b;
 }
 
+.navs {
+  color:#e50a4b;
+  display: flex;
+  flex-direction: column;
+}
+
+.navs a {
+  color:#e50a4b;
+}

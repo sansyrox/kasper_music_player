@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './views/App';
+
 import 'tachyons';
 import * as serviceWorker from './serviceWorker';
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, Redirect } from 'react-router'
 import * as firebase from "firebase";
 
 const configOptions = {
@@ -23,7 +24,8 @@ firebase.initializeApp(configOptions);
 
 ReactDOM.render(
     <Router history={browserHistory}>
-        <Route path="/" component={App} />
+        <Route path="/:recent" component={App}  />
+        <Redirect from="/" to="/new" />
     </Router>
 , document.getElementById('root'));
 
