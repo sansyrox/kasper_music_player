@@ -3,7 +3,10 @@
 # Kasper Music Player 
 ---
 (previously known as youtube_cli_flask)
->An app that would allow "music.youtube.com" to work in India and other restricted countries
+# This app is made to bypass the Youtube Premium Model and allow youtube premium to work even in countries where Youtube is restricted.
+
+<p>Something as essential as music should be free for all. Join me in this journey to break the oligopoly.</p>
+
 
 NOTE (For the NWoC participants): If you guys find any issue that is not already created, create an issue in the repo and I'll add the difficulty labels accordingly.
 
