@@ -195,8 +195,19 @@ input {
     align-self: center;
     justify-self: center;
     width: 100vw;
+    /* height: 100vh; */
+  }
+
+  .heading h2 {
+    color: #fff;
   }
   
+.main-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
 .overlay-left {
     transform: translateX(-20%);
 }

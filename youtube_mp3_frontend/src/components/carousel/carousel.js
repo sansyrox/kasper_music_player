@@ -46,7 +46,7 @@ class Carousel extends Component {
       <div id="carousel">        
       {/* {`${this.props.data}`} */}
         <Coverflow
-        width="800" height="200"
+        width="800" height="400"
         displayQuantityOfSide={2}
         navigation={true}
         enableHeading={false}

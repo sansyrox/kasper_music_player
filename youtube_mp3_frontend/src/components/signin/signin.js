@@ -58,7 +58,7 @@ class SignIn extends React.Component {
 
   onSignInEmailChange = (event) => {
     let signInForm = {...this.state.signInForm}
-    signInForm["name"] = event.target.value
+    signInForm["email"] = event.target.value
     this.setState({signInForm});
   }
 
@@ -70,6 +70,7 @@ class SignIn extends React.Component {
   }
 
   signUp = (event) => {
+
     event.preventDefault()
     firebase.auth()
         .createUserWithEmailAndPassword(this.state.signUpForm.email, this.state.signUpForm.password)
@@ -93,10 +94,11 @@ class SignIn extends React.Component {
     login = (event) => {
       event.preventDefault()
       
-      
+    
       firebase.auth()
       .signInWithEmailAndPassword(this.state.signInForm.email, this.state.signInForm.password)
       .then(() => {
+        console.log("TMKS")
         console.log(this.state);
         const cookies = new Cookies();
         let expiringDate = new Date();
@@ -113,7 +115,14 @@ class SignIn extends React.Component {
 
   render() {  
     return (
+
+      <div className="main-container">
+        <div className="heading"><h2>Welcome to Kasper Music Player! 🐶🐶</h2></div>
+
       <div className="home">
+
+        
+
         <div id="container" className= {"container " + this.state.isActive}>
         <div className="form-container sign-up-container">
           <form action="#" onSubmit={this.signUp}>
@@ -125,15 +134,14 @@ class SignIn extends React.Component {
                 name="name"
                 required
                 autoFocus
-                onChange={this.onEmailChange}
-                v-model="signUpForm.name"
+                onChange={this.onSignUpNameChange}
             />
             <input type="email" 
                 placeholder="Email"
                 name="email"
                 required
                 autoFocus
-                v-model="signUpForm.email"
+                onChange={this.onSignUpEmailChange}
                 />
             <input 
                 type="password" 
@@ -141,7 +149,7 @@ class SignIn extends React.Component {
                 id="password"
                 name="password"
                 required
-                v-model="signUpForm.password"
+                onChange={this.onSignUpPasswordChange}
                 />
             
             <button>Sign Up</button>
@@ -192,6 +200,7 @@ class SignIn extends React.Component {
           </div>
           {/* <div>{{error}}</div> */}
         </div>
+      </div>
       </div>
     );
   }  
