@@ -33,7 +33,7 @@ class MusicPlayerPage extends Component {
         // console.log(window.sessionStorage.getItem("songCache"))
         // console.log(this.state.song.id)
         let state = {...this.state}
-        state.song.id = JSON.parse(window.sessionStorage.getItem("songCache").split("*")[0])["id"]
+        state.song.id = window.sessionStorage.getItem("songCache") ? JSON.parse(window.sessionStorage.getItem("songCache").split("*")[0])["id"] : ""
         this.setState({state})
         this.getRecs()
 
@@ -48,13 +48,15 @@ class MusicPlayerPage extends Component {
     getRecs = async () => {
       if (window.location.pathname.split('/')[1]==="recent") {
         // this.setState({recommendations:JSON.parse(window.sessionStorage.getItem("songCache").split("*").slice(1,))})
-        let rec = window.sessionStorage.getItem("songCache").split("*").slice(1,);
-        rec.forEach((item, idx)=>{
-          rec[idx] = JSON.parse(item)
-          rec[idx]["img_url"] = rec[idx]["img_url"].slice(1, rec[idx]["img_url"].length-1)
-        })
-        console.log(rec);
-        this.setState({recommendations:rec})
+        if (window.sessionStorage.getItem("songCache")) {
+                let rec = window.sessionStorage.getItem("songCache").split("*").slice(1,);
+                rec.forEach((item, idx)=>{
+                  rec[idx] = JSON.parse(item)
+                  rec[idx]["img_url"] = rec[idx]["img_url"].slice(1, rec[idx]["img_url"].length-1)
+                })
+                console.log(rec);
+                this.setState({recommendations:rec})
+              }
         
       }
       else {

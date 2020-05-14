@@ -1,13 +1,14 @@
 const configOptions = {
-    apiKey: "AIzaSyCfDfUYduG3ipK2RaDkaKkLbDZEwuqVyos",
-    authDomain: "music-agg-social-network.firebaseapp.com",
-    databaseURL: "https://music-agg-social-network.firebaseio.com",
-    projectId: "music-agg-social-network",
-    storageBucket: "music-agg-social-network.appspot.com",
-    messagingSenderId: "367275513381",
-    appId: "1:367275513381:web:5f1de36aabcd2ec0b251cc",
-    measurementId: "G-SKB221RDZJ"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASE_URL,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_Id,
+    measurementId: process.env.REACT_APP_MEASUREMENT_ID,
   };
 
-  export default configOptions;
+export default configOptions;
+
   

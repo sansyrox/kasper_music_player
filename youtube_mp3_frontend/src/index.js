@@ -7,7 +7,7 @@ import 'tachyons';
 import * as serviceWorker from './serviceWorker';
 import { Router, Route, browserHistory, Redirect } from 'react-router'
 import * as firebase from "firebase";
-import {configOptions} from './config';
+import configOptions from "./config";
 
 
 firebase.initializeApp(configOptions);
