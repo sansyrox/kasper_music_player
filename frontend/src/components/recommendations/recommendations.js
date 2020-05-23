@@ -7,7 +7,7 @@ class Recommendations extends Component {
         
         return (
             <div className='flex'>
-            { this.props.recommendations.slice(0,5).map((item,i) => {
+            { this.props.recommendations.slice(0,5).reverse().map((item,i) => {
                 // console.log(item)
             return (
                 <article key={i} className="weekly_cont br2 ba mr3 red-font-color b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">

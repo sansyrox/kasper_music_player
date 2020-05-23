@@ -16,6 +16,7 @@ class MusicPlayerPage extends Component {
 
     }
 
+    
     componentWillReceiveProps(nextProps) {
       if ({ ...nextProps , URLLink:'' }!==this.state) {
         this.getRecs()
@@ -88,17 +89,12 @@ class MusicPlayerPage extends Component {
           if (curr_cache === undefined || curr_cache === null || curr_cache === "") {
             window.sessionStorage.setItem("songCache",JSON.stringify(setting_dict))
           } else {  
-            console.log(typeof(curr_cache))
-            
+            // console.log(typeof(curr_cache))
             curr_cache=curr_cache+'*'+JSON.stringify(setting_dict);
-            // console.log(curr_cache)
             curr_cache=curr_cache.split("*")
             curr_cache = [...new Set(curr_cache)]
-            curr_cache = curr_cache.slice(0,5)
+            curr_cache = curr_cache.reverse().slice(0,5)
             curr_cache = curr_cache.join("*")
-            // console.log(curr_cache)
-            // .slice(0,5)s
-            // set the max limit to 10
             window.sessionStorage.setItem("songCache",curr_cache)
           }
         });

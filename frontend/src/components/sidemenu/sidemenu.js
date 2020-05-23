@@ -4,13 +4,7 @@ import './sidemenu.css';
 import kasper_logo from '../../img/kasper_logo.png';
 import { browserHistory, Link } from 'react-router'
 
-
-
-
 class SideMenu extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   nextPath = (path)  => {
     browserHistory.push(path)  

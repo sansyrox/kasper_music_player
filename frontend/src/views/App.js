@@ -31,9 +31,13 @@ const initialState = {
 
 class App extends Component {
 
-  state = {
-    recentSong : [],
-    recentRec: []
+  constructor(){
+    super();
+    this.state = initialState;
+    this.recentSong = [];
+    
+    
+    this.recentRec = [];
   }
 
   loadUser = (data) => {
