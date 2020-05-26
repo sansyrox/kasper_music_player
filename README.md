@@ -29,13 +29,12 @@ NOTE (For the NWoC participants): If you guys find any issue that is not already
 <p> Currently as for initial Stage, I expect to make a "music.youtube.com" like app that works in India too and plays only mp3 music. Incorporating Youtube Suggestion too, it uses Youtube API's or scrapping if required. </p>
 <p> As of now, the front-end and backend are be in a common repo and will be separated if the app shows some promise. </p>
 
-UI Refactor(Including Audio Player) -> Add Travis-> Try to get [Cover Art](https://www.npmjs.com/package/album-art) (Try Spotify API) -> Connect a DataBase(FireBase, until a better option available) -> Add Authentication -> Add API for PlayLists -> Likes -> Support For Different Platforms
+UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase, until a better option available) -> Add API for PlayLists -> Likes -> Support For Different Platforms
 
 ## Installation
 [(Back to contents👆🏻)](#contents)
 
 ### To start the Flask Server
-* Install vlc if not done already (`sudo apt-get install vlc` for Debian & `sudo snap install vlc` for Ubuntu)
 
 * It is advised to use a `pipenv` as the already installed versions of vlc might interfere with the ones in the dependencies
 
@@ -47,7 +46,6 @@ UI Refactor(Including Audio Player) -> Add Travis-> Try to get [Cover Art](https
 
 * Before running the server, get your YouTube API key by following this guide -                https://developers.google.com/youtube/v3/getting-started
 
-* Use your own API key by modifying line 5 in [this](server/youtube_videos.py) file.
 
 * To run the server, use the command `pipenv run python3 server.py`
 
