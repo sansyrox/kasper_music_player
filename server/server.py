@@ -8,9 +8,12 @@ import vlc
 from modules import youtube_videos
 from modules import coverpy
 from flask_cors import CORS
+import threading
 
 app = Flask(__name__)
+app1 = Flask(__name__)
 CORS(app)
+CORS(app1)
 Instance = vlc.Instance('--no-video')
 player = Instance.media_player_new()
 url = ''
@@ -67,6 +70,29 @@ def recommended_songs():
     resp.status_code = 200
     return resp
 
+@app.route('/recommend_carousel', methods=['GET'])
+def carousel():
+    response = youtube.recommended_carousel()
+    title,vid = [i[0] for i in response] , [i[1] for i in response]
+    print(title,vid)
+    display_message = {"titles": title, "videos": vid}
+    resp = jsonify(display_message)
+    resp.status_code = 200
+    return resp
+
+@app1.route('/weekly_tops', methods=['GET'])
+def weekly_tops():
+    response = youtube.weekly_top()
+    title,vid = [i[0] for i in response] , [i[1] for i in response]
+    print(title,vid)
+    display_message = {"titles": title, "videos": vid}
+    resp = jsonify(display_message)
+    resp.status_code = 200
+    return resp
+
+
+
+
 @app.route('/play', methods=['GET'])
 def wo_youtube():
     video_id = request.args.get('vid')
@@ -78,25 +104,6 @@ def wo_youtube():
     return resp
 
 
-@app.route('/recommend_carousel', methods=['GET'])
-def carousel():
-    response = youtube.recommended_carousel()
-    title,vid = [i[0] for i in response] , [i[1] for i in response]
-    print(title,vid)
-    display_message = {"titles": title, "videos": vid}
-    resp = jsonify(display_message)
-    resp.status_code = 200
-    return resp
-
-@app.route('/weekly_tops', methods=['GET'])
-def weekly_tops():
-    response = youtube.weekly_top()
-    title,vid = [i[0] for i in response] , [i[1] for i in response]
-    print(title,vid)
-    display_message = {"titles": title, "videos": vid}
-    resp = jsonify(display_message)
-    resp.status_code = 200
-    return resp
 
 @app.route('/pause')
 def pause():
@@ -134,7 +141,18 @@ def play():
     resp.status_code = 200
     return resp
 
+
+def runFlaskApp1():
+    app.run(host='127.0.0.1', port=7070, debug=False, threaded=True)
+
+def runFlaskApp2():
+    app1.run(host='127.0.0.1', port=7071, debug=False, threaded=True)
+
+
 if __name__ == '__main__':
-    app.run(debug=True,port=7070,host= '0.0.0.0', threaded=True)
+    t1 = threading.Thread(target=runFlaskApp1)
+    t2 = threading.Thread(target=runFlaskApp2)
+    t1.start()
+    t2.start()
 
 
