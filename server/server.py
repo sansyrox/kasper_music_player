@@ -9,6 +9,7 @@ from modules import youtube_videos
 from modules import coverpy
 from flask_cors import CORS
 import threading
+import asyncio
 
 app = Flask(__name__)
 app1 = Flask(__name__)
@@ -54,25 +55,25 @@ def index():
     return render_template('index.html')
 
 @app.route('/search', methods=['GET'])
-def w_youtube():
+async def w_youtube():
     search_query = request.args.get('vid')
-    res = song.search(search_query)
+    res = await song.search(search_query)
     resp = jsonify(res)
     resp.status_code = 200
     return resp
 
 @app.route('/recommend', methods=['GET'])
-def recommended_songs():
+async def recommended_songs():
     video_id = request.args.get('vid')
-    recommended = song.recommend(video_id)
+    recommended = await song.recommend(video_id)
     res = {"items" : recommended}
     resp = jsonify(res)
     resp.status_code = 200
     return resp
 
 @app.route('/recommend_carousel', methods=['GET'])
-def carousel():
-    response = youtube.recommended_carousel()
+async def carousel():
+    response = await youtube.recommended_carousel()
     title,vid = [i[0] for i in response] , [i[1] for i in response]
     print(title,vid)
     display_message = {"titles": title, "videos": vid}
@@ -81,8 +82,8 @@ def carousel():
     return resp
 
 @app1.route('/weekly_tops', methods=['GET'])
-def weekly_tops():
-    response = youtube.weekly_top()
+async def weekly_tops():
+    response = await youtube.weekly_top()
     title,vid = [i[0] for i in response] , [i[1] for i in response]
     print(title,vid)
     display_message = {"titles": title, "videos": vid}
@@ -94,9 +95,9 @@ def weekly_tops():
 
 
 @app.route('/play', methods=['GET'])
-def wo_youtube():
+async def wo_youtube():
     video_id = request.args.get('vid')
-    url = song.play(video_id)
+    url = await song.play(video_id)
     print(url)
     display_message = {"status":"song started","url":url}
     resp = jsonify(display_message)
