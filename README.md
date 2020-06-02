@@ -2,13 +2,11 @@
 
 # Kasper Music Player 
 ---
-(previously known as youtube_cli_flask)
-# This app is made to bypass the Youtube Premium Model and allow youtube premium to work even in countries where Youtube is restricted.
-
-<p>Something as essential as music should be free for all. Join me in this journey to break the oligopoly.</p>
+Why Kasper? 
+It is the name of my dog and it rhymes with the iconic app Napster.
 
 
-NOTE (For the NWoC participants): If you guys find any issue that is not already created, create an issue in the repo and I'll add the difficulty labels accordingly.
+It is a music streaming app which allows free music streaming for all and bypasses the youtube music algorithm to work even in restricted countries.
 
 ## Contents
 - [# Kasper Music Player](#kasper-music-player)
@@ -26,8 +24,6 @@ NOTE (For the NWoC participants): If you guys find any issue that is not already
 
 ## RoadMap
 [(Back to contents👆🏻)](#contents)
-<p> Currently as for initial Stage, I expect to make a "music.youtube.com" like app that works in India too and plays only mp3 music. Incorporating Youtube Suggestion too, it uses Youtube API's or scrapping if required. </p>
-<p> As of now, the front-end and backend are be in a common repo and will be separated if the app shows some promise. </p>
 
 UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase, until a better option available) -> Add API for PlayLists -> Likes -> Support For Different Platforms
 
