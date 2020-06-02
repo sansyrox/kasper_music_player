@@ -2,8 +2,8 @@
 
 # Kasper Music Player 
 ---
-Why Kasper? 
-It is the name of my dog and it rhymes with the iconic app Napster.
+Why Kasper? <br>
+As It is the name of my dog and it rhymes with the iconic app Napster.
 
 
 It is a music streaming app which allows free music streaming for all and bypasses the youtube music algorithm to work even in restricted countries.
@@ -61,9 +61,8 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 ## Tech Stack (Expected)
 [(Back to contents👆🏻)](#contents)
 
-* Currently this is a Flask Backend
+* Flask Backend
 * React Frontend.
-* Native Swift for IOS App
-* For Storing Data , Firebase will be used.
+* Firebase Auth and DB.
 
 <p align="center"> Made with ❤ by <a href="https://github.com/stealthanthrax">Sanskar Jethi</a></p>
