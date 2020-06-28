@@ -2,7 +2,7 @@
 import React,{Component} from 'react'
 import './index-color.css'
 
-const BASE_URL = "https://100.25.202.153:5000/";
+const BASE_URL = "https://100.25.202.153:5000";
 
 class WeeklyTop extends Component {
 
