@@ -8,7 +8,7 @@ import MusicPlayerPage from './MusicPlayerPage';
 import LandingPage from './LandingPage';
 import Cookies from 'universal-cookie';
 
-const BASE_URL = 'http://localhost:7070/';
+const BASE_URL = 'http://100.25.202.153:5000/';
 
 const initialState = {
   input:'',

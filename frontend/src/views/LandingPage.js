@@ -3,7 +3,7 @@ import Carousel from '../components/carousel/carousel';
 import WeeklyTop from '../components/weeklytop/weeklytop';
 import '../index.css';
 
-const BASE_URL = "http://localhost:7070/"
+const BASE_URL = "http://100.25.202.153:5000/"
 
 class LandingPage extends Component {
     constructor(props) {
