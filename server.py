@@ -148,6 +148,6 @@ def play():
 if __name__ == '__main__':
     # t1 = threading.Thread(target=runFlaskApp1)
     # t1.start()
-    app.run()
+    app.run(threaded=True)
 
 
