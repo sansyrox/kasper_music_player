@@ -3,7 +3,7 @@ import Recommendations from '../components/recommendations/recommendations';
 import AudioPlayer from '../components/audioplayer/audioplayer';
 import '../index.css';
 
-const BASE_URL = 'https://100.25.202.153:5000';
+const BASE_URL = 'https://api.beatnik.world/';
 
 class MusicPlayerPage extends Component {
 

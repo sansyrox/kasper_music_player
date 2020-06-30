@@ -3,7 +3,7 @@ import React,{Component} from 'react'
 import Coverflow from 'react-coverflow';
 import './Carousel.css';
 
-const BASE_URL = "https://100.25.202.153:5000";
+const BASE_URL = "https://api.beatnik.world/";
 
 class Carousel extends Component {
 

@@ -8,7 +8,7 @@ import MusicPlayerPage from './MusicPlayerPage';
 import LandingPage from './LandingPage';
 import Cookies from 'universal-cookie';
 
-const BASE_URL = 'https://100.25.202.153:5000';
+const BASE_URL = 'https://api.beatnik.world/';
 
 const initialState = {
   input:'',
