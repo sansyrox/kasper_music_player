@@ -8,7 +8,7 @@ import MusicPlayerPage from './MusicPlayerPage';
 import LandingPage from './LandingPage';
 import Cookies from 'universal-cookie';
 
-const BASE_URL = 'https://api.beatnik.world/';
+const BASE_URL = 'https://api.beatnik.world';
 
 const initialState = {
   input:'',
@@ -78,7 +78,7 @@ class App extends Component {
   }
 
   toggleSearch = async () => {
-    const req= await fetch(`${BASE_URL}search?vid=${this.state.input}`)
+    const req= await fetch(`${BASE_URL}/search?vid=${this.state.input}`)
     const res= await req.json()
     this.setState({song:res})
     this.setState({routesearch:true,play:false})
@@ -89,12 +89,12 @@ class App extends Component {
   }
 
   onPlayClick = () => {
-    fetch(`${BASE_URL}play?vid=${this.state.song.id}`)
+    fetch(`${BASE_URL}/play?vid=${this.state.song.id}`)
     this.setState({play:!this.state.play})
   }
 
   onPauseClick = () => {
-    fetch(`${BASE_URL}pause`)
+    fetch(`${BASE_URL}/pause`)
     this.setState({play:!this.state.play})
   }
 

@@ -3,7 +3,7 @@ import Recommendations from '../components/recommendations/recommendations';
 import AudioPlayer from '../components/audioplayer/audioplayer';
 import '../index.css';
 
-const BASE_URL = 'https://api.beatnik.world/';
+const BASE_URL = 'https://api.beatnik.world';
 
 class MusicPlayerPage extends Component {
 
@@ -61,7 +61,7 @@ class MusicPlayerPage extends Component {
         
       }
       else {
-        const req2= await fetch(`${BASE_URL}recommend?vid=${this.state.song.id}`)
+        const req2= await fetch(`${BASE_URL}/recommend?vid=${this.state.song.id}`)
         const res2= await req2.json() 
         console.log(res2)
         this.setState({recommendations:res2.items})
@@ -71,7 +71,7 @@ class MusicPlayerPage extends Component {
 
     onPlayClick =  () => {
       
-        fetch(`${BASE_URL}play?vid=${this.state.song.id}`)
+        fetch(`${BASE_URL}/play?vid=${this.state.song.id}`)
         .then(res=>res.json())
         .then( (res)=>{
           this.setState({play: false})
@@ -102,7 +102,7 @@ class MusicPlayerPage extends Component {
       
     
     onPauseClick = () => {
-      fetch(`${BASE_URL}pause`)
+      fetch(`${BASE_URL}/pause`)
       this.setState({play:!this.state.play})
       this.audio.pause()
     }

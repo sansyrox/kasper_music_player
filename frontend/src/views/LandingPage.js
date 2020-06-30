@@ -3,7 +3,7 @@ import Carousel from '../components/carousel/carousel';
 import WeeklyTop from '../components/weeklytop/weeklytop';
 import '../index.css';
 
-const BASE_URL = "https://api.beatnik.world/"
+const BASE_URL = "https://api.beatnik.world"
 
 class LandingPage extends Component {
     constructor(props) {
