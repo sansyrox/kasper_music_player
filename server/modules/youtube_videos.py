@@ -3,6 +3,8 @@ import requests
 import sys
 import bs4
 import re
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 class youtube_results:
   def youtube_search(self, q):
@@ -48,22 +50,23 @@ class youtube_results:
   # 
 
   def weekly_top(self):
-    related = requests.get("https://www.youtube.com/watch?v=q0hyYWKXF0Q&list=PLI_7Mg2Z_-4I-W_lI55D9lBUkC66ftHMg")
-    related.raise_for_status()
-    searchSoup2 = bs4.BeautifulSoup(related.content,features="html.parser")
-    video_links = searchSoup2.find_all('li', {'class':'yt-uix-scroller-scroll-unit'})
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.get("https://www.youtube.com/watch?v=q0hyYWKXF0Q&list=PLI_7Mg2Z_-4I-W_lI55D9lBUkC66ftHMg")
+    searchSoup2 = bs4.BeautifulSoup(driver.page_source,features="html.parser")
+    video_links = searchSoup2.find_all('ytd-playlist-panel-video-renderer',{'id':'playlist-items'})
+    driver.quit()
+    video_links = [(i.find('span',{'id':'video-title'}).get('title'),i.find('a').get('href').replace('&','=').split('=')[1][:-1]) for i in video_links]
     print(video_links)
-    video_links = [(i.get('data-video-title'), i.get('data-video-id')) for i in video_links]
     return video_links
-  
 
 
   def recommended_carousel(self):
-    related = requests.get("https://www.youtube.com/watch?v=qVdPh2cBTN0&list=RDqVdPh2cBTN0")
-    related.raise_for_status()
-    searchSoup2 = bs4.BeautifulSoup(related.content,features="html.parser")
-    video_links = searchSoup2.find_all('li', {'class':'yt-uix-scroller-scroll-unit'})
-    print(video_links)
-    video_links = [(i.get('data-video-title'), i.get('data-video-id')) for i in video_links]
+    # related.raise_for_status()
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.get("https://www.youtube.com/watch?v=qVdPh2cBTN0&list=RDqVdPh2cBTN0")
+    searchSoup2 = bs4.BeautifulSoup(driver.page_source,features="html.parser")
+    video_links = searchSoup2.find_all('ytd-playlist-panel-video-renderer',{'id':'playlist-items'})
+    driver.quit()
+    video_links = [(i.find('span',{'id':'video-title'}).get('title'),i.find('a').get('href').replace('&','=').split('=')[1][:-1]) for i in video_links]
     print(video_links)
     return video_links

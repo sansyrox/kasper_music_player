@@ -105,49 +105,12 @@ def wo_youtube():
 
 
 
-@app.route('/pause')
-def pause():
-    """ Rn, doing nothing but expecting a post request to for user activity
-    """
-    display_message = {"status":"song paused"}
-    resp = jsonify(display_message)
-    resp.status_code = 200
-    return resp
-
-@app.route('/stop')
-def stop():
-    """ Rn, doing nothing but expecting a post request to for user activity
-    """
-    display_message = {"status":"song stopped"}
-    resp = jsonify(display_message)
-    resp.status_code = 200
-    return resp
-
-@app.route('/restart')
-def restart():
-    """ Rn, doing nothing but expecting a post request to for user activity
-    """
-    display_message = {"status":"song restarted"}
-    resp = jsonify(display_message)
-    resp.status_code = 200
-    return resp
-
-@app.route('/resume')
-def play():
-    """ Rn, doing nothing but expecting a post request to for user activity
-    """
-    display_message = {"status":"song resumed"}
-    resp = jsonify(display_message)
-    resp.status_code = 200
-    return resp
-
-
 # def runFlaskApp1():
     # app.run(host='127.0.0.1', port=7070, debug=True, threaded=True)
 
 if __name__ == '__main__':
     # t1 = threading.Thread(target=runFlaskApp1)
     # t1.start()
-    app.run()
+    app.run(debug=True)
 
 
