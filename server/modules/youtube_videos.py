@@ -49,7 +49,7 @@ class youtube_results:
     driver.get("https://www.youtube.com/watch?v=q0hyYWKXF0Q&list=PLI_7Mg2Z_-4I-W_lI55D9lBUkC66ftHMg")
     searchSoup2 = bs4.BeautifulSoup(driver.page_source,features="html.parser")
     video_links = searchSoup2.find_all('ytd-playlist-panel-video-renderer',{'id':'playlist-items'})
-    video_links = [(i.find('span',{'id':'video-title'}).get('title'),i.find('a').get('href').replace('&','=').split('=')[1][:-1]) for i in video_links]
+    video_links = [(i.find('span',{'id':'video-title'}).get('title'),i.find('a').get('href').replace('&','=').split('=')[1]) for i in video_links]
     print("Video Links are",video_links)
     return video_links
 
@@ -61,7 +61,7 @@ class youtube_results:
     searchSoup2 = bs4.BeautifulSoup(driver.page_source,features="html.parser")
     video_links = searchSoup2.find_all('ytd-playlist-panel-video-renderer',{'id':'playlist-items'})
     driver.quit()
-    video_links = [(i.find('span',{'id':'video-title'}).get('title'),i.find('a').get('href').replace('&','=').split('=')[1][:-1]) for i in video_links]
+    video_links = [(i.find('span',{'id':'video-title'}).get('title'),i.find('a').get('href').replace('&','=').split('=')[1]) for i in video_links]
     print(video_links)
     return video_links
   
