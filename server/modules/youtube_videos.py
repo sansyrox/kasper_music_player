@@ -32,7 +32,7 @@ class youtube_results:
     rel_videos = []
     for i in videoLinks2:
         video_title = i.find('span',{'id':'video-title'}).get('title')
-        video_id = i.find('ytd-thumbnail').find('a',{'id':'thumbnail'}).get('href').replace('&','=').split('=')[1][:-1]
+        video_id = i.find('ytd-thumbnail').find('a',{'id':'thumbnail'}).get('href').replace('&','=').split('=')[1]
         img_url = f"https://img.youtube.com/vi/{video_id}/0.jpg"
 
         if video_id and video_title and img_url:

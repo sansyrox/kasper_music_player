@@ -3,7 +3,7 @@ import Recommendations from '../components/recommendations/recommendations';
 import AudioPlayer from '../components/audioplayer/audioplayer';
 import '../index.css';
 
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL || "http://localhost:5000";
 
 class MusicPlayerPage extends Component {
 

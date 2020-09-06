@@ -2,7 +2,7 @@
 import React,{Component} from 'react'
 import './index-color.css'
 
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL || "http://localhost:5000";
 
 class WeeklyTop extends Component {
 
