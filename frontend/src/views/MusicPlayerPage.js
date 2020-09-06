@@ -23,16 +23,12 @@ class MusicPlayerPage extends Component {
       }
 
       this.setState({ ...nextProps , URLLink:'' });  
-      // this.getRecs()
     }
 
 
     componentDidMount() {
       console.log(window.location.pathname.split('/'));
       if (window.location.pathname.split('/')[1]==="recent") {
-        // this.state.song.id = window.sessionStorage.getItem("songCache").split("*")
-        // console.log(window.sessionStorage.getItem("songCache"))
-        // console.log(this.state.song.id)
         let state = {...this.state}
         state.song.id = window.sessionStorage.getItem("songCache") ? JSON.parse(window.sessionStorage.getItem("songCache").split("*")[0])["id"] : ""
         this.setState({state})
@@ -63,7 +59,7 @@ class MusicPlayerPage extends Component {
       else {
         const req2= await fetch(`${BASE_URL}/recommend?vid=${this.state.song.id}`)
         const res2= await req2.json() 
-        console.log(res2)
+        console.log(res2, this.state.song.id);
         this.setState({recommendations:res2.items})
       }
       

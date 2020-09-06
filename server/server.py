@@ -38,8 +38,10 @@ class search_play_recommend:
 
     def recommend(self, video_id):
         related_result = youtube.youtube_related(video_id)
+        print("Realted Resut is", related_result)
         items = []
         for video in related_result:
+            print(video)
             items.append(dict([('title', video[0]), ('id', video[1]), ('img_url',video[2])]))
         return items
 
@@ -64,7 +66,9 @@ def w_youtube():
 @app.route('/recommend', methods=['GET'])
 def recommended_songs():
     video_id = request.args.get('vid')
+    print(video_id)
     recommended = song.recommend(video_id)
+    print(recommended)
     res = {"items" : recommended}
     resp = jsonify(res)
     resp.status_code = 200

@@ -57,8 +57,9 @@ class Carousel extends Component {
           >
           <img src='http://www.persrock.com/wp-content/uploads/persrock_album_cover1.jpg' alt='Album one' />
           </div> */}
-
+          
           {this.state.v_id.slice(0,5).map((item, idx)=>{
+            console.log(item)
             return(
               <div role="menuItem" tabIndex={idx}>
                 <img key={idx} src={`https://img.youtube.com/vi/${item}/0.jpg`} alt='Album two' onClick={(e)=>{this.handle(idx)}} />
