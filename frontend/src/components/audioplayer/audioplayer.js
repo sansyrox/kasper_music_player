@@ -4,7 +4,7 @@ import { PlayButton, Timer } from 'react-soundplayer/components';
 import Progress from 'react-progressbar';
  
 // it's just an alias for `withSoundCloudAudio` but makes code clearer
-import { withCustomAudio } from 'react-soundplayer/addons';
+//import { withCustomAudio } from 'react-soundplayer/addons';
 
 const initialState = {
     playing: false,

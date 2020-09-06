@@ -8,55 +8,49 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 class youtube_results:
   def youtube_search(self, q):
-    
-    res = requests.get("https://www.youtube.com/results?search_query=" + q)
-    res.raise_for_status()
-
-    searchSoup = bs4.BeautifulSoup(res.content,features="html.parser")
-    videoLinks = searchSoup.select('a.yt-uix-tile-link.yt-ui-ellipsis.yt-ui-ellipsis-2.yt-uix-sessionlink.spf-link')
-
-    max_results = min(20,len(videoLinks))
-    videos = []
-    for i in range(max_results):    
-        regex = re.compile(r'/(watch\?v=|embed/|v/|.+\?v=)?(?P<id>[A-Za-z0-9\-=_]{11})')
-        VideosId = regex.match(videoLinks[i].get('href'))
-        if not VideosId:
-            print('no match')
-        else:
-            videos.append([videoLinks[i].get('title'),VideosId.group('id')])
-    return videos
+    # returns href links of video items
+    # requires some effort in making it sync with the client
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.get("https://www.youtube.com/results?search_query=" + q) 
+    searchSoup = bs4.BeautifulSoup(driver.page_source,features="html.parser")
+    videoLinks = searchSoup.find_all('ytd-thumbnail')
+    video_links = [(i.find('a').get('href')) for i in videoLinks ]
+    video_links = [i for i in video_links if i]
+    video_links = [i.split('=')[1] for i in video_links]
+    return video_links
 
   def youtube_related(self, relatedto_videoid):
-    related = requests.get("https://www.youtube.com/watch?v=" + relatedto_videoid)
-    print(relatedto_videoid)
-    related.raise_for_status()
-    searchSoup2 = bs4.BeautifulSoup(related.content,features="html.parser")
-    videoLinks2 = searchSoup2.select('a.content-link.spf-link.yt-uix-sessionlink.spf-link')
-    max_results2 = min(20,len(videoLinks2))
+    """ This is supposed to return the [video title, video id, image url] of the related videos
+    """
+
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.get("https://www.youtube.com/watch?v=" + relatedto_videoid) 
+    searchSoup2 = bs4.BeautifulSoup(driver.page_source,features="html.parser")
+    videoLinks2 = searchSoup2.find_all('ytd-compact-video-renderer')
+    import time
+    time.sleep(2)
     rel_videos = []
-  
-    for i in range(max_results2):    
-        regex2 = re.compile(r'/(watch\?v=|embed/|v/|.+\?v=)?(?P<id>[A-Za-z0-9\-=_]{11})')
-        VideosId2 = regex2.match(videoLinks2[i].get('href'))
-        if not VideosId2:
-            print('no match')
-        else:
-            vid = VideosId2.group('id')
-            rel_videos.append([videoLinks2[i].get('title'),VideosId2.group('id'), 'https://img.youtube.com/vi/'+str(vid)+'/0.jpg'])
-            
-   
+    for i in videoLinks2:
+        video_title = i.find('span',{'id':'video-title'}).get('title')
+        video_id = i.find('ytd-thumbnail').find('a',{'id':'thumbnail'}).get('href').replace('&','=').split('=')[1][:-1]
+        img_url = f"https://img.youtube.com/vi/{video_id}/0.jpg"
+
+        if video_id and video_title and img_url:
+            rel_videos.append((video_title, video_id, img_url))
+
+    print(rel_videos) 
     return rel_videos
   
-  # 
 
   def weekly_top(self):
+    """This is supposed to return the links of the weekly top hits from my video playlist
+    """
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.get("https://www.youtube.com/watch?v=q0hyYWKXF0Q&list=PLI_7Mg2Z_-4I-W_lI55D9lBUkC66ftHMg")
     searchSoup2 = bs4.BeautifulSoup(driver.page_source,features="html.parser")
     video_links = searchSoup2.find_all('ytd-playlist-panel-video-renderer',{'id':'playlist-items'})
-    driver.quit()
     video_links = [(i.find('span',{'id':'video-title'}).get('title'),i.find('a').get('href').replace('&','=').split('=')[1][:-1]) for i in video_links]
-    print(video_links)
+    print("Video Links are",video_links)
     return video_links
 
 
@@ -70,3 +64,7 @@ class youtube_results:
     video_links = [(i.find('span',{'id':'video-title'}).get('title'),i.find('a').get('href').replace('&','=').split('=')[1][:-1]) for i in video_links]
     print(video_links)
     return video_links
+  
+# youtube_results().weekly_top()
+if __name__=="__main__":
+    youtube_results().youtube_related('pXRviuL6vMY')

@@ -3,7 +3,7 @@ import Carousel from '../components/carousel/carousel';
 import WeeklyTop from '../components/weeklytop/weeklytop';
 import '../index.css';
 
-const BASE_URL = "https://api.beatnik.world"
+const BASE_URL = process.env.BASE_URL;
 
 class LandingPage extends Component {
     constructor(props) {
@@ -14,17 +14,17 @@ class LandingPage extends Component {
       // this.getRecs();
     }
 
-    // getRecs = async () => {
-    //   try {
-    //     const req2= await fetch(`${BASE_URL}recommend?vid=kJQP7kiw5Fk`)
-    //     const res2= await req2.json() 
-    //     console.log(res2)
-    //     this.setState({recommendations:res2.items})
-    //   } catch (error) {
-    //     console.log(error); 
-    //   }
+		 getRecs = async () => {
+			 try {
+				 const req2= await fetch(`${BASE_URL}recommend?vid=kJQP7kiw5Fk`)
+				 const res2= await req2.json() 
+				 console.log("Hello World",res2)
+				 this.setState({recommendations:res2.items})
+			 } catch (error) {
+				 console.log(error); 
+			 }
       
-    // }
+		 }
 
     render() {
         return (

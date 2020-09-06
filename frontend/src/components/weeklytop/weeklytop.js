@@ -2,7 +2,7 @@
 import React,{Component} from 'react'
 import './index-color.css'
 
-const BASE_URL = "https://api.beatnik.world";
+const BASE_URL = process.env.BASE_URL;
 
 class WeeklyTop extends Component {
 
@@ -34,10 +34,7 @@ class WeeklyTop extends Component {
       }
 
     handleClick = (item, index) => {
-
-        // console.log(item[1])
         this.props.onSetInput(item[1])
-
         this.props.toggleSearch()
     }
     

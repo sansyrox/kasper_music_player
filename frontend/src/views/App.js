@@ -8,7 +8,7 @@ import MusicPlayerPage from './MusicPlayerPage';
 import LandingPage from './LandingPage';
 import Cookies from 'universal-cookie';
 
-const BASE_URL = 'https://api.beatnik.world';
+const BASE_URL = process.env.BASE_URL || 'http://localhost:5000';
 
 const initialState = {
   input:'',
@@ -35,8 +35,6 @@ class App extends Component {
     super();
     this.state = initialState;
     this.recentSong = [];
-    
-    
     this.recentRec = [];
   }
 
@@ -78,16 +76,24 @@ class App extends Component {
   }
 
   toggleSearch = async () => {
+		try{
     const req= await fetch(`${BASE_URL}/search?vid=${this.state.input}`)
+		console.log(`${BASE_URL}/search?vid=${this.state.input}`)
     const res= await req.json()
-    this.setState({song:res})
+    this.setState({song:res});
+		console.log(res);
     this.setState({routesearch:true,play:false})
     console.log(res);
+		}
+		catch (err) {
+			console.log("Error is ",err);
+		}
     // this.refs.searchtoggle
     // this.
     
   }
 
+// Meaningless functions below will implement new funcitons in the future
   onPlayClick = () => {
     fetch(`${BASE_URL}/play?vid=${this.state.song.id}`)
     this.setState({play:!this.state.play})
@@ -105,30 +111,29 @@ class App extends Component {
   render() {
     const cookies = new Cookies();
     console.log(cookies.get("loggedIn"))
-
     if (cookies.get("loggedIn")==="true") {
-      // console.log(this.state.isSignedIn);
-      // this.setState({isSignedIn: true})
-      return (<div className='flex'>
-      <SideMenu isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange} />
-      <div className='cardsection flex flex-column'>
-        <div>
-          {
-            window.location.pathname.split('/')[1]!=="recent"?
-            <SearchBar isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange} toggleSearch={this.toggleSearch}  onInputChange={this.onInputChange}/>:
-            ''
-          }
-          
-        </div>
-        
-        {
-          window.location.pathname.split('/')[1]==="recent"?
-          <MusicPlayerPage song={this.recentSong} recent={"recent"} recommendations={this.state.recommendations}/>
-          :
-          this.state.routesearch===false?<LandingPage toggleSearch={this.toggleSearch} onSetInput={this.onSetInput} />:<MusicPlayerPage ref="searchtoggle" song={this.state.song} recommendations={this.state.recommendations}/>
-        }
-      </div>
-    </div>)
+      return (
+				<div className='flex'>
+					<SideMenu isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange} />
+					<div className='cardsection flex flex-column'>
+						<div>
+							{
+								window.location.pathname.split('/')[1]!=="recent"?
+								<SearchBar isSignedIn={cookies.get("loggedIn")==="true"} onRouteChange={this.onRouteChange} toggleSearch={this.toggleSearch}  onInputChange={this.onInputChange}/>:
+								''
+							}
+							
+						</div>
+						
+						{
+							window.location.pathname.split('/')[1]==="recent"?
+							<MusicPlayerPage song={this.recentSong} recent={"recent"} recommendations={this.state.recommendations}/>
+							:
+							this.state.routesearch===false?<LandingPage toggleSearch={this.toggleSearch} onSetInput={this.onSetInput} />:<MusicPlayerPage ref="searchtoggle" song={this.state.song} recommendations={this.state.recommendations}/>
+						}
+					</div>
+    </div>
+			)
     }
     else {
       return (
