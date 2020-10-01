@@ -15,7 +15,7 @@ It is a music streaming app which allows free music streaming for all and bypass
 - [RoadMap](#roadmap)
 - [Installation](#installation)
   - [To start the Flask Server](#to-start-the-flask-server)
-  - [To start the React Frontent](#to-start-the-react-frontent)
+  - [To start the React Frontend](#to-start-the-react-frontend)
 - [Tech Stack (Expected)](#tech-stack-expected)
 
 ## History
@@ -36,7 +36,7 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 
 * Use the command `pip3 install pipenv`
 
-* Now `cd` into server directory via the `cd server/`
+* Now go into server directory using the command `cd server/`
 
 * Next, install the dependenices by using the command `pipenv install`
 
@@ -46,7 +46,10 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 * To run the server, use the command `pipenv run python3 server.py`
 
 ### To start the React Frontend
-* Clone the repo using `git clone https://github.com/NJACKWinterOfCode/youtube_cli_flask.git`.
+
+* Open terminal to get started.
+
+* To clone the repo, type `git clone https://github.com/NJACKWinterOfCode/youtube_cli_flask.git` in your terminal.
 
 * Then go to the frontend directory using `cd youtube_cli_flask/youtube_mp3_frontend`.
 
@@ -57,6 +60,8 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 * Install react-coverflow using `npm install react-coverflow`
 
 * To start the react app, Use `npm start`.
+
+* Now the app would have started on your default browser!!
 
 ## Tech Stack (Expected)
 [(Back to contents👆🏻)](#contents)
