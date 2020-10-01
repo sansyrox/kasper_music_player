@@ -9,13 +9,13 @@ As It is the name of my dog and it rhymes with the iconic app Napster.
 It is a music streaming app which allows free music streaming for all and bypasses the youtube music algorithm to work even in restricted countries.
 
 ## Contents
-- [# Kasper Music Player](#kasper-music-player)
 - [Contents](#contents)
+- [About the Kasper Music Player](#kasper-music-player)
 - [History](#history)
 - [RoadMap](#roadmap)
 - [Installation](#installation)
-  - [To start the Flask Server](#to-start-the-flask-server)
-  - [To start the React Frontend](#to-start-the-react-frontend)
+  - [For Flask Server](#to-start-the-flask-server)
+  - [For React Frontend](#to-start-the-react-frontend)
 - [Tech Stack (Expected)](#tech-stack-expected)
 
 ## History
@@ -66,8 +66,8 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 ## Tech Stack (Expected)
 [(Back to contents👆🏻)](#contents)
 
-* Flask Backend
-* React Frontend.
-* Firebase Auth and DB.
+* Backend - Flask (Python) 
+* Frontend - React
+* Firebase for Auth and DB.
 
 <p align="center"> Made with ❤ by <a href="https://github.com/stealthanthrax">Sanskar Jethi</a></p>
