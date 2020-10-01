@@ -51,7 +51,7 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 
 * To clone the repo, type `git clone https://github.com/sansyrox/kasper_music_player.git` in your terminal.
 
-* Then go to the frontend directory using `cd youtube_cli_flask/youtube_mp3_frontend`.
+* Then go to the frontend directory using `cd kasper_music_player/youtube_mp3_frontend`.
 
 * Install the dependencies using `npm install --save`
 
