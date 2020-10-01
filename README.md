@@ -49,7 +49,7 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 
 * Open terminal to get started.
 
-* To clone the repo, type `git clone https://github.com/NJACKWinterOfCode/youtube_cli_flask.git` in your terminal.
+* To clone the repo, type `git clone https://github.com/sansyrox/kasper_music_player.git` in your terminal.
 
 * Then go to the frontend directory using `cd youtube_cli_flask/youtube_mp3_frontend`.
 
@@ -69,5 +69,5 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 * Backend - Flask (Python) 
 * Frontend - React
 * Firebase for Auth and DB.
-
+* Netlify
 <p align="center"> Made with ❤ by <a href="https://github.com/stealthanthrax">Sanskar Jethi</a></p>
