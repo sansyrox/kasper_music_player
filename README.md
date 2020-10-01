@@ -9,13 +9,13 @@ As It is the name of my dog and it rhymes with the iconic app Napster.
 It is a music streaming app which allows free music streaming for all and bypasses the youtube music algorithm to work even in restricted countries.
 
 ## Contents
-- [# Kasper Music Player](#kasper-music-player)
 - [Contents](#contents)
+- [About the Kasper Music Player](#kasper-music-player)
 - [History](#history)
 - [RoadMap](#roadmap)
 - [Installation](#installation)
-  - [To start the Flask Server](#to-start-the-flask-server)
-  - [To start the React Frontent](#to-start-the-react-frontent)
+  - [For Flask Server](#to-start-the-flask-server)
+  - [For React Frontend](#to-start-the-react-frontend)
 - [Tech Stack (Expected)](#tech-stack-expected)
 
 ## History
@@ -36,7 +36,7 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 
 * Use the command `pip3 install pipenv`
 
-* Now `cd` into server directory via the `cd server/`
+* Now go into server directory using the command `cd server/`
 
 * Next, install the dependenices by using the command `pipenv install`
 
@@ -46,9 +46,12 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 * To run the server, use the command `pipenv run python3 server.py`
 
 ### To start the React Frontend
-* Clone the repo using `git clone https://github.com/NJACKWinterOfCode/youtube_cli_flask.git`.
 
-* Then go to the frontend directory using `cd youtube_cli_flask/youtube_mp3_frontend`.
+* Open terminal to get started.
+
+* To clone the repo, type `git clone https://github.com/sansyrox/kasper_music_player.git` in your terminal.
+
+* Then go to the frontend directory using `cd kasper_music_player/youtube_mp3_frontend`.
 
 * Install the dependencies using `npm install --save`
 
@@ -58,11 +61,13 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 
 * To start the react app, Use `npm start`.
 
+* Now the app would have started on your default browser!!
+
 ## Tech Stack (Expected)
 [(Back to contents👆🏻)](#contents)
 
-* Flask Backend
-* React Frontend.
-* Firebase Auth and DB.
-
+* Backend - Flask (Python) 
+* Frontend - React
+* Firebase for Auth and DB.
+* Netlify
 <p align="center"> Made with ❤ by <a href="https://github.com/stealthanthrax">Sanskar Jethi</a></p>
