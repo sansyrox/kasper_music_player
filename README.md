@@ -78,4 +78,4 @@ UI Refactor(Including Audio Player) -> Add Travis -> Connect a DataBase(FireBase
 - Frontend - React
 - Firebase for Auth and DB.
 - Netlify
-<p align="center"> Made with ❤ by <a href="https://github.com/stealthanthrax">Sanskar Jethi</a></p>
+<p align="center"> Made with ❤ by <a href="https://github.com/sansyrox">Sanskar Jethi</a></p>
